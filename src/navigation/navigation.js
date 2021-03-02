@@ -1,15 +1,20 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import SignUp from './../screens/SignUp/SignUp';
-import LogIn from './../screens/LogIn/LogIn'
+import {
+  Welcome,
+  SignUp,
+  LogIn,
+  Setting,
+  Search
+} from './../screens/index'; 
 const Stack = createStackNavigator();
 
 function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="SignUp"
           component={SignUp}
           options={{ headerShown: false }}
@@ -17,6 +22,21 @@ function Navigation() {
           <Stack.Screen
           name="LogIn"
           component={LogIn}
+          options={{ headerShown: false }}
+        /> */}
+            {/* <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{ headerShown: false }}
+        /> */}
+            {/* <Stack.Screen
+          name="Setting"
+          component={Setting}
+          options={{ headerShown: false }}
+        /> */}
+             <Stack.Screen
+          name="Search"
+          component={Search}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
