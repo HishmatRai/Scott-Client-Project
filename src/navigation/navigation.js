@@ -6,7 +6,9 @@ import {
   SignUp,
   LogIn,
   Setting,
-  Search
+  Search,
+  Notifications,
+  Profile
 } from './../screens/index'; 
 const Stack = createStackNavigator();
 
@@ -34,9 +36,19 @@ function Navigation() {
           component={Setting}
           options={{ headerShown: false }}
         /> */}
-             <Stack.Screen
+             {/* <Stack.Screen
           name="Search"
           component={Search}
+          options={{ headerShown: false }}
+        /> */}
+            {/* <Stack.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{ headerShown: false }}
+        /> */}
+           <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
