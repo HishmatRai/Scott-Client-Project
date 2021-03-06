@@ -9,16 +9,10 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import {
-  Feather,
-  MaterialIcons,
-  Ionicons,
-  FontAwesome5,
-  AntDesign,
-} from "@expo/vector-icons";
+import { Feather, MaterialIcons, EvilIcons, Entypo,AntDesign,FontAwesome5 } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
-const Profile = (props) => {
+const Home = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
   const onChange = ({ window, screen }) => {
@@ -35,39 +29,45 @@ const Profile = (props) => {
   let NotificationsData = [
     {
       userName: "Dianne Ameter",
-      notificationsTime: "32 minutes ago",
+      notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+        link:"www.offerstika.com"
     },
     {
       userName: "Linguina Nettlewater",
-      notificationsTime: "45 minutes ago",
+      notificationsTime: "45 min",
       notificationsMessage:
         "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
+        link:""
     },
     {
       userName: "Richard Tea",
-      notificationsTime: "32 minutes ago",
+      notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+        link:"www.offerstika.com"
     },
     {
       userName: "Dianne Ameter",
-      notificationsTime: "32 minutes ago",
+      notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+        link:"www.offerstika.com"
     },
     {
       userName: "Richard Tea",
-      notificationsTime: "32 minutes ago",
+      notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+        link:"www.offerstika.com"
     },
     {
       userName: "Dianne Ameter",
-      notificationsTime: "32 minutes ago",
+      notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+        link:"www.offerstika.com"
     },
   ];
   return (
@@ -79,76 +79,67 @@ const Profile = (props) => {
         translucent={true}
       />
       <View style={styles._header}>
-        <TouchableOpacity>
-          <MaterialIcons name="keyboard-backspace" size={24} color="black" />
+        <TouchableOpacity style={{ marginLeft: 10 }}>
+          <Entypo name="menu" size={30} color="white" />
         </TouchableOpacity>
-        <Text style={styles._header_text}>Profile</Text>
-        <TouchableOpacity>
-          <Feather name="settings" size={24} color="black" />
+        <Text style={styles._header_text}>Home</Text>
+        <TouchableOpacity style={styles._search_icon}>
+          <EvilIcons name="search" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView>
         <View style={{ margin: 20 }}>
           {/* ======================== */}
-          <View style={styles._profile_main}>
-            <Image
-              source={require("./../../images/profile.png")}
-              style={styles._user_profile}
-            />
-          </View>
-          <TouchableOpacity style={styles._add_btn}>
-            <Ionicons name="ios-add" size={14} color="white" />
-          </TouchableOpacity>
-          <Text style={styles._user_full_name}>Piff Jenkins</Text>
-          <Text style={styles._user_user_name}>@piffjenkins</Text>
-          <View style={styles._followers_main}>
-            <View>
-              <Text style={styles._following}>FOLLOWİNG</Text>
-              <Text style={styles._following_counter}>115</Text>
-            </View>
-            <View>
-              <Text style={styles._following}>FOLLOWERS</Text>
-              <Text style={styles._following_counter}>2.703</Text>
-            </View>
-          </View>
-          <Text style={styles._user_des}>
-            Ut nulla purus, elementum at sollicitudin nec quis, commodo nec
-            nunc. Fusce sed dictum eros.
-          </Text>
-          <View style={styles._edit_main}>
-            <TouchableOpacity>
-              <FontAwesome5 name="edit" size={24} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Feather name="image" size={24} color="#FF8802" />
-            </TouchableOpacity>
-          </View>
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main}>
                 <View style={styles._Notification_User_main}>
                   <View style={styles._user_profile_main}>
                     <Image
-                      source={require("./../../images/profile2.png")}
-                      style={styles._user_profile2}
+                      source={require("./../../images/Mask.png")}
+                      style={styles._user_profile}
                     />
                   </View>
                   <View style={styles._user_name_main}>
                     <Text style={styles._user_name}>{v.userName}</Text>
+                  </View>
+                  <View style={styles._Notification_time_main}>
                     <Text style={styles._Notification_time}>
                       {v.notificationsTime}
                     </Text>
-                  </View>
-                  <View style={styles._Notification_time_main}>
-                    <TouchableOpacity>
-                      <Feather name="more-horizontal" size={24} color="black" />
-                    </TouchableOpacity>
                   </View>
                 </View>
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
-                Entypo
+                <Text style={{color:"#504DE5",fontSize:14,marginTop:10}}>{v.link}</Text>
+                <Image
+                  source={require("./../../images/homepost.png")}
+                  style={styles._user_post_img}
+                />
+                <View style={styles._like_share_main}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      
+                    }}
+                  >
+                    <TouchableOpacity>
+                      <AntDesign name="hearto" size={20} color="black" />
+                    </TouchableOpacity>
+                    <Text style={styles._like_show}>110</Text>
+                    <TouchableOpacity>
+                      <FontAwesome5 name="comment" size={20} color="#6F8BA4" />
+                    </TouchableOpacity>
+                  </View>
+                  <View>
+                    <TouchableOpacity style={styles._share_btn}>
+                      <AntDesign name="sharealt" size={20} color="white" />
+                    </TouchableOpacity>
+                  </View>
+                </View>
               </View>
             );
           })}
@@ -167,11 +158,11 @@ const Profile = (props) => {
             <MaterialIcons
               name="notifications-none"
               size={34}
-              color="#989BA5"
+              color="#33CC66"
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles._active_tab}>
-            <Feather name="user" size={34} color="#33CC66" />
+            <Feather name="user" size={34} color="#989BA5" />
           </TouchableOpacity>
         </View>
       </View>
@@ -185,90 +176,27 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   _header: {
+    paddingTop: 40,
+    paddingBottom: 20,
     flexDirection: "row",
     justifyContent: "space-between",
+    backgroundColor: "#33CC66",
     alignItems: "center",
-    marginTop: 60,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 30,
   },
   _header_text: {
     fontWeight: "bold",
-    color: "#000000",
-    fontSize: 18,
+    color: "white",
+    fontSize: 25,
   },
-  _profile_main: {
-    width: 90,
-    height: 90,
-    borderRadius: 50,
-    alignSelf: "center",
-  },
-  _user_profile: {
-    width: 90,
-    height: 90,
-    borderRadius: 50,
-    alignSelf: "center",
-  },
-  _add_btn: {
-    backgroundColor: "#2F5E3E",
-    width: 18,
-    height: 18,
-    borderRadius: 100,
-    alignSelf: "center",
+  _search_icon: {
+    backgroundColor: "#80EA4E",
+    height: 30,
+    width: 30,
+    borderRadius: 20,
     alignItems: "center",
+    alignSelf: "center",
     justifyContent: "center",
-    marginTop: -25,
-    marginLeft: 70,
-    borderColor: "white",
-    borderWidth: 2,
-  },
-  _user_full_name: {
-    textAlign: "center",
-    alignSelf: "center",
-    fontSize: 20,
-    color: "#333333",
-    fontWeight: "bold",
-    marginTop: 20,
-    letterSpacing: 1,
-  },
-  _user_user_name: {
-    textAlign: "center",
-    alignSelf: "center",
-    fontSize: 13,
-    color: "#686363",
-    letterSpacing: 1,
-  },
-  _followers_main: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    marginTop: 20,
-  },
-  _following: {
-    fontSize: 12,
-    color: "#6F8BA4",
-    textAlign: "center",
-  },
-  _following_counter: {
-    fontSize: 14,
-    color: "#3B566E",
-    textAlign: "center",
-    alignSelf: "center",
-  },
-  _user_des: {
-    fontSize: 14,
-    color: "#6F8BA4",
-    letterSpacing: 1,
-    marginTop: 20,
-  },
-  _edit_main: {
-    flexDirection: "row",
-    width: "40%",
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 30,
+    marginRight: 10,
   },
   _Notification_Card_main: {
     elevation: 4,
@@ -293,9 +221,9 @@ const styles = StyleSheet.create({
     width: "15%",
     // backgroundColor:"yellow"
   },
-  _user_profile2: {
-    height: 50,
-    width: 50,
+  _user_profile: {
+    height: 40,
+    width: 40,
     borderRadius: 20,
   },
   _user_name: {
@@ -323,7 +251,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingLeft:10,
-    paddingRight:10
+    paddingRight:10,
+    marginTop:10
   },
   _share_btn: {
     backgroundColor: "#33CC66",
@@ -375,4 +304,4 @@ const styles = StyleSheet.create({
   //   tab navigation end
 });
 
-export default Profile;
+export default Home;

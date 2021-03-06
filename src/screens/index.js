@@ -4,7 +4,8 @@ import LogIn from './LogIn/LogIn';
 import Setting from './Setting/Setting';
 import Search from './Search/Search';
 import Notifications from './Notifications/Notifications';
-import Profile from './Profile/Profile'
+import Profile from './Profile/Profile';
+import Home from './Home/Home'
 
 export {
     Welcome,
@@ -13,6 +14,7 @@ export {
     Setting,
     Search,
     Notifications,
-    Profile
+    Profile,
+    Home
 
 }
