@@ -8,10 +8,11 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from "react-native-gesture-handler";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
-const Welcome = (props) => {
+const Welcome2 = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
   const onChange = ({ window, screen }) => {
@@ -35,27 +36,40 @@ const Welcome = (props) => {
       />
       <ScrollView>
         <View style={{ margin: 20 }}>
-          <Image
-            source={require("./../../images/welcome1.png")}
-            style={styles._welcome_image}
-          />
-          <View style={styles._active_show_main}>
-            <View style={styles._active}></View>
-            <View style={styles._show_dot}></View>
-            <View style={styles._show_dot}></View>
-          </View>
           <Text style={styles.hairWords}>Welcome</Text>
           <Text style={styles._Des}>
-            Meet people based on places they are located follow places to see
-            more post and meet more people.
+            Post a feed and your post will be visible to people living at same
+            place as you and also the places you follow
           </Text>
+          <View style={styles._slider_main}>
+            <Image
+              source={require("./../../images/slider3.png")}
+              style={styles._slider3_image}
+            />
+            <Image
+              source={require("./../../images/slider1.png")}
+              style={styles._slider1_image}
+            />
+            <Image
+              source={require("./../../images/slider2.png")}
+              style={styles._slider2_image}
+            />
+          </View>
+          <View style={styles._active_show_main}>
+            <View style={styles._show_dot}></View>
+            <View style={styles._active}></View>
+            <View style={styles._show_dot}></View>
+          </View>
         </View>
       </ScrollView>
-          <View style={styles._next_main}>
-            <TouchableOpacity style={styles._next_btn}  onPress={() => props.navigation.navigate("Welcome2")}>
-              <Text style={styles._next_btn_text}>Next</Text>
-            </TouchableOpacity>
-          </View>
+      <View style={styles._next_main}>
+      <TouchableOpacity  onPress={() => props.navigation.navigate("Welcome")}>
+      <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles._next_btn}  onPress={() => props.navigation.navigate("Welcome3")}>
+          <Text style={styles._next_btn_text}>Next</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -81,13 +95,14 @@ const styles = StyleSheet.create({
     width: 11,
     backgroundColor: "#33CC66",
     borderRadius: 20,
+    marginLeft: 10,
+    marginRight: 10,
   },
   _show_dot: {
     height: 7,
     width: 7,
     backgroundColor: "rgba(51,204,102,0.45)",
     borderRadius: 20,
-    marginLeft: 10,
   },
   hairWords: {
     fontSize: 16,
@@ -95,7 +110,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: "center",
     color: "#3B566E",
-    marginTop: 20,
+    marginTop: 30,
     textAlign: "center",
   },
   _Des: {
@@ -106,8 +121,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   _next_main: {
-   bottom:20,
-   marginRight:20
+    bottom: 20,
+    marginRight: 20,
+    marginLeft:20,
+    flexDirection:"row",
+    justifyContent:"space-between"
   },
   _next_btn: {
     backgroundColor: "#33CC66",
@@ -122,8 +140,31 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
     fontWeight: "bold",
-    color:"white"
+    color: "white",
+  },
+  _slider_main: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop:40
+  },
+  _slider1_image: {
+    height: 230,
+    width: 230,
+    borderRadius: 20,
+  },
+  _slider2_image: {
+    height: 138,
+    width: 138,
+    marginRight: -100,
+    borderRadius: 20,
+  },
+  _slider3_image: {
+    height: 138,
+    width: 138,
+    marginLeft: -100,
+    borderRadius: 20,
   },
 });
 
-export default Welcome;
+export default Welcome2;

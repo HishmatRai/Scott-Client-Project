@@ -8,6 +8,7 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
+  Image
 } from "react-native";
 import {
   AntDesign,
@@ -42,62 +43,56 @@ const Signup = (props) => {
         translucent={true}
       />
       <View style={styles._main}>
-        <View style={styles._header_main}>
-          <TouchableOpacity>
-            <Ionicons name="md-arrow-round-back" size={24} color="black" />
-          </TouchableOpacity>
-          <Text style={styles._header_text}>SIGN UP</Text>
-          <Text style={styles._header_text}></Text>
-        </View>
+        <View style={styles._logo_main}>
+            <Image
+              source={require("./../../images/logo.png")}
+              style={styles._logo}
+            />
+            <Text style={styles._heading}>Create a new account</Text>
+          </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ marginTop: 20 }}>
             <View style={styles._input_main}>
-              <View style={styles._email_icons_view}>
-                <FontAwesome name="user-circle" size={24} color="#777777" />
-              </View>
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
-                  placeholder="Username"
-                  placeholderTextColor="#db2022"
+                  placeholder="Choose a username"
+                  placeholderTextColor="#C1C0C8"
                 />
               </View>
             </View>
             <View style={styles._input_main}>
-              <View style={styles._email_icons_view}>
-                <MaterialIcons name="email" size={24} color="#777777" />
-              </View>
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
-                  placeholder="Email Address"
-                  placeholderTextColor="black"
+                  placeholder="Email"
+                  placeholderTextColor="#C1C0C8"
                 />
               </View>
             </View>
             <View style={styles._input_main}>
-              <View style={styles._email_icons_view}>
-                <MaterialIcons name="lock" size={24} color="#777777" />
-              </View>
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
                   placeholder="Password"
                   secureTextEntry={true}
-                  placeholderTextColor="black"
+                  placeholderTextColor="#C1C0C8"
+                />
+              </View>
+            </View>
+            <View style={styles._input_main}>
+              <View style={styles._email_input_view}>
+                <TextInput
+                  style={styles._input}
+                  placeholder="Re-enter Password"
+                  secureTextEntry={true}
+                  placeholderTextColor="#C1C0C8"
                 />
               </View>
             </View>
           </View>
-          <View style={styles._term_condition}>
-            <AntDesign name="checkcircle" size={24} color="#33cc66" />
-            <Text style={styles._agree_text}>I agree to the</Text>
-            <TouchableOpacity>
-              <Text style={styles._forgot_btn_text}>Terms and Conditions</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("LogIn")}>
-            <Text style={styles._button_txt}>SIGN UP</Text>
+          <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("Home")}>
+            <Text style={styles._button_txt}>Sign up</Text>
           </TouchableOpacity>
           <View style={styles._already_member}>
             <Text style={styles._already_member_text}>
@@ -136,11 +131,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   _input_main: {
-    flexDirection: "row",
-    borderRadius: 20,
-    backgroundColor: "#f5f5f5",
+    borderRadius: 5,
+    backgroundColor: "#F2F5F8",
     // borderWidth: 1,
-    borderRadius: 50,
+    borderRadius: 5,
     alignItems: "center",
     padding: 10,
     marginTop: 30,
@@ -150,12 +144,13 @@ const styles = StyleSheet.create({
     width: "15%",
   },
   _email_input_view: {
-    // backgroundColor: "green",
-    width: "85%",
+    width: "100%",
   },
   _input: {
-    fontWeight: "bold",
-    color: "black",
+    color: "#C1C0C8",
+    fontSize:14,
+    letterSpacing:1
+
   },
   _forgot_btn_text: {
     letterSpacing: 1,
@@ -166,7 +161,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: "100%",
     alignSelf: "center",
-    marginTop: 10,
+    marginTop: 20,
   },
   _button_txt: {
     fontWeight: "bold",
@@ -218,19 +213,33 @@ const styles = StyleSheet.create({
   _already_member: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 60,
-    alignSelf: "center",
+    marginTop: 10,
+    alignSelf: "flex-end",
   },
   _already_member_text: {
-    color: "gray",
-    marginRight:4
+    color: "#6F8BA4",
+    marginRight:4,
+    fontSize:12
   },
   _signin_btn_text:{
     letterSpacing: 1,
     color: "#33cc66",
     fontWeight:"bold",
-    fontSize:20
-  }
+    fontSize:12
+  },
+  _logo_main: {
+    alignItems: "center",
+    marginTop: 40,
+  },
+  _logo: {
+    width: 198,
+    height: 80,
+  },
+  _heading: {
+    fontSize: 14,
+    color: "black",
+    letterSpacing: 1,
+  },
 });
 
 export default Signup;

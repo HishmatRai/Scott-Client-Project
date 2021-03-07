@@ -36,38 +36,32 @@ const Profile = (props) => {
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:
-        "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Linguina Nettlewater",
       notificationsTime: "45 minutes ago",
-      notificationsMessage:
-        "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
+      notificationsMessage:"Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:
-        "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:
-        "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:
-        "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:
-        "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
   ];
   return (
@@ -79,11 +73,11 @@ const Profile = (props) => {
         translucent={true}
       />
       <View style={styles._header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <MaterialIcons name="keyboard-backspace" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Profile</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Setting")}>
           <Feather name="settings" size={24} color="black" />
         </TouchableOpacity>
       </View>
@@ -96,7 +90,7 @@ const Profile = (props) => {
               style={styles._user_profile}
             />
           </View>
-          <TouchableOpacity style={styles._add_btn}>
+          <TouchableOpacity style={styles._add_btn2}>
             <Ionicons name="ios-add" size={14} color="white" />
           </TouchableOpacity>
           <Text style={styles._user_full_name}>Piff Jenkins</Text>
@@ -116,7 +110,7 @@ const Profile = (props) => {
             nunc. Fusce sed dictum eros.
           </Text>
           <View style={styles._edit_main}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => props.navigation.navigate("EditeProfile")}>
               <FontAwesome5 name="edit" size={24} color="black" />
             </TouchableOpacity>
             <TouchableOpacity>
@@ -148,7 +142,6 @@ const Profile = (props) => {
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
-                Entypo
               </View>
             );
           })}
@@ -157,21 +150,21 @@ const Profile = (props) => {
       </ScrollView>
       <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
-          <TouchableOpacity>
-            <Feather name="home" size={34} color="#989BA5" />
+          <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
+            <Feather name="home" size={30} color="#989BA5" />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Feather name="message-square" size={34} color="#989BA5" />
+          <TouchableOpacity onPress={() => props.navigation.navigate("Message")}>
+            <Feather name="message-square" size={30} color="#989BA5" />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
             <MaterialIcons
               name="notifications-none"
-              size={34}
+              size={30}
               color="#989BA5"
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles._active_tab}>
-            <Feather name="user" size={34} color="#33CC66" />
+          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
+            <Feather name="user" size={30} color="#33CC66" />
           </TouchableOpacity>
         </View>
       </View>
@@ -210,7 +203,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: "center",
   },
-  _add_btn: {
+  _add_btn2: {
     backgroundColor: "#2F5E3E",
     width: 18,
     height: 18,
@@ -342,16 +335,20 @@ const styles = StyleSheet.create({
   },
   //   tab navigation
   _tab_navigation_main: {
-    bottom: 0,
+    bottom: 5,
+    width: "90%",
+    alignSelf: "center",
+    borderRadius: 20,
+    backgroundColor: "white",
+    elevation: 8,
   },
   _tab_navigation: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    borderTopWidth: 1,
-    borderTopColor: "#E0E0E0",
-    paddingTop: 15,
+    paddingTop: 10,
     paddingBottom: 10,
+    // backgroundColor: "white",
   },
   _active_dot: {
     color: "#FC6100",
@@ -371,6 +368,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     borderRadius: 100,
+  },
+  _add_main: {
+    position: "absolute",
+    bottom: 70,
+    width: "80%",
+    alignSelf: "center",
+  },
+
+  _add_btn: {
+    height: 40,
+    width: 40,
+    backgroundColor: "#FF8802",
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "flex-end",
   },
   //   tab navigation end
 });

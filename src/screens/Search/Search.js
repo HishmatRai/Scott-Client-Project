@@ -19,7 +19,7 @@ export default function Search(props) {
             {/* >>>>>>>>>>>>>>>>> HEADER <<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main_view}>
                 <View style={styles._heading_icons_main}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.goBack()}>
                         <Entypo name="cross" size={24} color="white" />
                     </TouchableOpacity>
                     <Text style={styles._heading_text}>Search</Text>

@@ -83,7 +83,7 @@ const Home = (props) => {
           <Entypo name="menu" size={30} color="white" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Home</Text>
-        <TouchableOpacity style={styles._search_icon}>
+        <TouchableOpacity style={styles._search_icon}  onPress={() => props.navigation.navigate("Search")}>
           <EvilIcons name="search" size={24} color="white" />
         </TouchableOpacity>
       </View>
@@ -112,7 +112,6 @@ const Home = (props) => {
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
-                <Text style={{color:"#504DE5",fontSize:14,marginTop:10}}>{v.link}</Text>
                 <Image
                   source={require("./../../images/homepost.png")}
                   style={styles._user_post_img}
@@ -149,20 +148,20 @@ const Home = (props) => {
       <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
           <TouchableOpacity>
-            <Feather name="home" size={34} color="#989BA5" />
+            <Feather name="home" size={30} color="#33CC66" />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Feather name="message-square" size={34} color="#989BA5" />
+          <TouchableOpacity onPress={() => props.navigation.navigate("Message")}>
+            <Feather name="message-square" size={30} color="#989BA5" />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
             <MaterialIcons
               name="notifications-none"
-              size={34}
-              color="#33CC66"
+              size={30}
+              color="#989BA5"
             />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles._active_tab}>
-            <Feather name="user" size={34} color="#989BA5" />
+          </TouchableOpacity >
+          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
+            <Feather name="user" size={30} color="#989BA5" />
           </TouchableOpacity>
         </View>
       </View>
@@ -270,17 +269,22 @@ const styles = StyleSheet.create({
     marginRight:10
   },
   //   tab navigation
+  //   tab navigation
   _tab_navigation_main: {
-    bottom: 0,
+    bottom: 5,
+    width: "90%",
+    alignSelf: "center",
+    borderRadius: 20,
+    backgroundColor: "white",
+    elevation: 8,
   },
   _tab_navigation: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    borderTopWidth: 1,
-    borderTopColor: "#E0E0E0",
-    paddingTop: 15,
+    paddingTop: 10,
     paddingBottom: 10,
+    // backgroundColor: "white",
   },
   _active_dot: {
     color: "#FC6100",
@@ -300,6 +304,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     borderRadius: 100,
+  },
+  _add_main: {
+    position: "absolute",
+    bottom: 70,
+    width: "80%",
+    alignSelf: "center",
+  },
+
+  _add_btn: {
+    height: 40,
+    width: 40,
+    backgroundColor: "#FF8802",
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "flex-end",
   },
   //   tab navigation end
 });

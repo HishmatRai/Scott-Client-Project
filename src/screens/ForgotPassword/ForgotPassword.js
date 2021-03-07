@@ -14,7 +14,7 @@ import { Entypo, Ionicons, MaterialIcons, Feather } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-const LogIn = (props) => {
+const ForgotPassword = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
   const onChange = ({ window, screen }) => {
@@ -31,33 +31,29 @@ const LogIn = (props) => {
   return (
     <View style={styles.container}>
       <StatusBar
-        barStyle="dark-content"
+        barStyle="white"
         hidden={false}
-        backgroundColor="white"
+        backgroundColor="#33CC66"
         translucent={true}
       />
       <View style={styles._main}>
-        <TouchableOpacity
-          style={styles._back_icon_btn}
-          onPress={() => props.navigation.goBack()}
-        >
-          <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
-        </TouchableOpacity>
+        <View style={{ flexDirection: "row", alignItems: "center", paddingTop:20 }}>
+          <TouchableOpacity
+            style={styles._back_icon_btn}
+            onPress={() => props.navigation.goBack()}
+          >
+            <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
+          </TouchableOpacity>
+          <Text style={styles._heading}>Forgot Password</Text>
+        </View>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={styles._logo_main}>
-            <Image
-              source={require("./../../images/logo.png")}
-              style={styles._logo}
-            />
-            <Text style={styles._heading}>Login to existing account</Text>
-          </View>
-          <View style={{ marginTop: 20 }}>
-            <View style={styles._input_main}>
+          <View style={{ marginTop: 70 }}>
+          <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
                   placeholder="email"
-                  placeholderTextColor="#6F8BA4"
+                  placeholderTextColor="#C1C0C8"
                 />
               </View>
             </View>
@@ -65,55 +61,29 @@ const LogIn = (props) => {
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
-                  placeholder="password"
+                  placeholder="new password"
                   secureTextEntry={true}
-                  placeholderTextColor="#6F8BA4"
+                  placeholderTextColor="#C1C0C8"
+                />
+              </View>
+            </View>
+            <View style={styles._input_main}>
+              <View style={styles._email_input_view}>
+                <TextInput
+                  style={styles._input}
+                  placeholder="confirm password"
+                  secureTextEntry={true}
+                  placeholderTextColor="#C1C0C8"
                 />
               </View>
             </View>
           </View>
-          <View>
-            <TouchableOpacity style={styles._forgot_btn} onPress={() => props.navigation.navigate("ForgotPassword")}>
-              <Text style={styles._forgot_btn_text}>Forgot password?</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles._remember_main}>
-            <TouchableOpacity style={styles._check}>
-              <Feather name="check" size={17} color="#504DE5" />
-            </TouchableOpacity>
-            <Text style={styles._remember_text}>Remember Me</Text>
-          </View>
+  
           <TouchableOpacity
             style={styles.button}
-            onPress={() => props.navigation.navigate("Home")}
+            onPress={() => props.navigation.navigate("SignUp")}
           >
-            <Text style={styles._button_txt}>Sign in</Text>
-          </TouchableOpacity>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              width: 300,
-              marginTop: 20,
-            }}
-          >
-            <View style={{ flex: 1, height: 1, backgroundColor: "#F0F2F6" }} />
-            <View>
-              <Text
-                style={{
-                  width: 50,
-                  textAlign: "center",
-                  fontSize: 12,
-                  color: "#6F8BA4",
-                }}
-              >
-                OR
-              </Text>
-            </View>
-            <View style={{ flex: 1, height: 1, backgroundColor: "#F0F2F6" }} />
-          </View>
-          <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("SignUp")}>
-            <Text style={styles._button_txt}>Sign up</Text>
+            <Text style={styles._button_txt}>Send</Text>
           </TouchableOpacity>
           <View style={{ marginBottom: 50 }}></View>
         </ScrollView>
@@ -130,21 +100,14 @@ const styles = StyleSheet.create({
   _main: {
     margin: 20,
   },
-  _back_icon_btn: {
-    marginTop: 20,
-  },
-  _logo_main: {
-    alignItems: "center",
-    marginTop: 40,
-  },
   _input_main: {
-    borderRadius: 20,
+    borderRadius: 5,
+    backgroundColor: "#F2F5F8",
+    // borderWidth: 1,
     borderRadius: 5,
     alignItems: "center",
     padding: 10,
-    marginTop: 20,
-    borderWidth: 1,
-    borderColor: "#DCDBFF",
+    marginTop: 30,
   },
   _email_input_view: {
     // backgroundColor: "green",
@@ -167,7 +130,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: "100%",
     alignSelf: "center",
-    marginTop: 10,
+    marginTop: 30,
   },
   _button_txt: {
     fontWeight: "bold",
@@ -205,10 +168,6 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     paddingRight: 10,
   },
-  _logo: {
-    width: 198,
-    height: 80,
-  },
   _remember_main: {
     flexDirection: "row",
     alignItems: "center",
@@ -232,10 +191,11 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   _heading: {
-    fontSize: 14,
+    marginLeft: "30%",
+    fontSize: 16,
+    fontWeight: "bold",
     color: "black",
-    letterSpacing: 1,
   },
 });
 
-export default LogIn;
+export default ForgotPassword;
