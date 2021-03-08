@@ -96,13 +96,13 @@ const Signup = (props) => {
           </TouchableOpacity>
           <View style={styles._already_member}>
             <Text style={styles._already_member_text}>
-              Already have an account?
+            Already a member?
             </Text>
             <TouchableOpacity onPress={() => props.navigation.navigate("LogIn")}>
               <Text style={styles._signin_btn_text}>Sign in</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ marginBottom: 50 }}></View>
+          <View style={{ marginBottom: 100 }}></View>
         </ScrollView>
       </View>
     </View>

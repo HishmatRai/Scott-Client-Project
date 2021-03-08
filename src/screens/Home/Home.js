@@ -9,7 +9,15 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { Feather, MaterialIcons, EvilIcons, Entypo,AntDesign,FontAwesome5 } from "@expo/vector-icons";
+import {
+  Feather,
+  MaterialIcons,
+  EvilIcons,
+  Entypo,
+  AntDesign,
+  FontAwesome5,
+  Ionicons,
+} from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Home = (props) => {
@@ -32,42 +40,42 @@ const Home = (props) => {
       notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-        link:"www.offerstika.com"
+      link: "www.offerstika.com",
     },
     {
       userName: "Linguina Nettlewater",
       notificationsTime: "45 min",
       notificationsMessage:
         "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
-        link:""
+      link: "",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-        link:"www.offerstika.com"
+      link: "www.offerstika.com",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-        link:"www.offerstika.com"
+      link: "www.offerstika.com",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-        link:"www.offerstika.com"
+      link: "www.offerstika.com",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 min",
       notificationsMessage:
         "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-        link:"www.offerstika.com"
+      link: "www.offerstika.com",
     },
   ];
   return (
@@ -83,17 +91,45 @@ const Home = (props) => {
           <Entypo name="menu" size={30} color="white" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Home</Text>
-        <TouchableOpacity style={styles._search_icon}  onPress={() => props.navigation.navigate("Search")}>
+        <TouchableOpacity
+          style={styles._search_icon}
+          onPress={() => props.navigation.navigate("Search")}
+        >
           <EvilIcons name="search" size={24} color="white" />
         </TouchableOpacity>
       </View>
       <ScrollView>
         <View style={{ margin: 20 }}>
           {/* ======================== */}
+          <View style={styles._post_main}>
+            <Image
+              source={require("./../../images/Mask.png")}
+              style={styles._user_profile}
+            />
+            <TouchableOpacity style={styles._create_post_btn}  onPress={() => props.navigation.navigate("CreatePost")}>
+              <Text style={styles._create_post_btn_text}>
+                What do you feel?
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles._video_main}>
+            <TouchableOpacity style={styles._video_btn}>
+              <Feather name="video" size={24} color="#C8D4DF" />
+              <Text style={styles._video_btn_text}>Video</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles._video_btn}>
+              <Feather name="camera" size={24} color="#C8D4DF" />
+              <Text style={styles._video_btn_text}>Photo</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles._video_btn2} onPress={() => props.navigation.navigate("AddLocation")}>
+              <Ionicons name="location-outline" size={24} color="#C8D4DF" />
+              <Text style={styles._video_btn_text}>Location</Text>
+            </TouchableOpacity>
+          </View>
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main}>
-                <View style={styles._Notification_User_main}>
+                <TouchableOpacity style={styles._Notification_User_main} onPress={() => props.navigation.navigate("PostDetail")}>
                   <View style={styles._user_profile_main}>
                     <Image
                       source={require("./../../images/Mask.png")}
@@ -108,10 +144,12 @@ const Home = (props) => {
                       {v.notificationsTime}
                     </Text>
                   </View>
-                </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => props.navigation.navigate("PostDetail")}>
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
+                </TouchableOpacity>
                 <Image
                   source={require("./../../images/homepost.png")}
                   style={styles._user_post_img}
@@ -122,7 +160,6 @@ const Home = (props) => {
                       flexDirection: "row",
                       justifyContent: "space-between",
                       alignItems: "center",
-                      
                     }}
                   >
                     <TouchableOpacity>
@@ -150,17 +187,24 @@ const Home = (props) => {
           <TouchableOpacity>
             <Feather name="home" size={30} color="#33CC66" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Message")}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate("Message")}
+          >
             <Feather name="message-square" size={30} color="#989BA5" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate("Notifications")}
+          >
             <MaterialIcons
               name="notifications-none"
               size={30}
               color="#989BA5"
             />
-          </TouchableOpacity >
-          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles._active_tab}
+            onPress={() => props.navigation.navigate("Profile")}
+          >
             <Feather name="user" size={30} color="#989BA5" />
           </TouchableOpacity>
         </View>
@@ -249,9 +293,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft:10,
-    paddingRight:10,
-    marginTop:10
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 10,
   },
   _share_btn: {
     backgroundColor: "#33CC66",
@@ -265,8 +309,50 @@ const styles = StyleSheet.create({
   _like_show: {
     color: "#AEB5C0",
     fontSize: 15,
-    marginLeft:10,
-    marginRight:10
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  _video_main: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderTopColor: "#F9F9F9",
+    borderTopWidth: 1,
+    borderBottomColor: "#F9F9F9",
+    borderBottomWidth: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  _video_btn: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "30%",
+    borderRightColor: "#F9F9F9",
+    borderRightWidth: 1,
+  },
+  _video_btn2: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "30%",
+  },
+  _video_btn_text: {
+    fontSize: 12,
+    color: "#6F8BA4",
+    marginLeft: 10,
+  },
+  _post_main: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop:10,
+    marginBottom:20
+  },
+  _create_post_btn: {
+    marginLeft: 20,
+  },
+  _create_post_btn_text: {
+    color: "#6F8BA4",
+    fontSize: 15,
+    letterSpacing: 1,
   },
   //   tab navigation
   //   tab navigation

@@ -148,7 +148,7 @@ const Message = (props) => {
           </ScrollView>
           {chatUser.map((v, i) => {
             return (
-              <View style={styles._message_list_main}>
+              <TouchableOpacity style={styles._message_list_main} onPress={() => props.navigation.navigate("MessageDetails")}>
                 <View style={styles._message_list_profile_main}>
                   <View>
                     <TouchableOpacity>
@@ -189,7 +189,7 @@ const Message = (props) => {
                   </Text>
                   <Text style={styles._unread_message}>{v.unreadMessage}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
           {/* ======================== */}

@@ -63,7 +63,7 @@ export default function Setting(props) {
                         <Text style={styles._setting_heading}>Terms & Policy</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles._main}>
+                <TouchableOpacity style={styles._main} onPress={() => props.navigation.navigate("LogIn")}>
                     <View style={styles._heading}>
                         <Text style={styles._logout}>Log Out</Text>
                     </View>

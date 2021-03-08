@@ -13,7 +13,9 @@ import PostDetail from './PostDetail/PostDetail';
 import Profile6 from './Profile6/Profile6';
 import CreatePost from './CreatePost/CreatePost';
 import EditeProfile from './EditeProfile/EditeProfile';
-import ForgotPassword from './ForgotPassword/ForgotPassword'
+import ForgotPassword from './ForgotPassword/ForgotPassword';
+import AddLocation from './AddLocation/AddLocation';
+import MessageDetails from './MessageDetails/MessageDetails'
 
 export {
     Welcome,
@@ -31,6 +33,8 @@ export {
     Profile6,
     CreatePost,
     EditeProfile,
-    ForgotPassword
+    ForgotPassword,
+    AddLocation,
+    MessageDetails
 
 }

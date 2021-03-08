@@ -44,11 +44,11 @@ const CreatePast = (props) => {
         translucent={true}
       />
       <View style={styles._header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Entypo name="cross" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Create Post</Text>
-        <TouchableOpacity style={styles._location}>
+        <TouchableOpacity style={styles._location} onPress={() => props.navigation.navigate("AddLocation")}>
           <EvilIcons name="location" size={24} color="white" />
         </TouchableOpacity>
       </View>
@@ -82,7 +82,7 @@ const CreatePast = (props) => {
                 </TouchableOpacity>
               </View>
             </ScrollView>
-            <TouchableOpacity style={styles._Publish_btn}>
+            <TouchableOpacity style={styles._Publish_btn} onPress={() => props.navigation.navigate("Home")}>
               <Text style={styles._Publish_btn_text}>Publish</Text>
             </TouchableOpacity>
           </View>

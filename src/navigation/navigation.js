@@ -18,6 +18,8 @@ import {
   Profile6,
   CreatePost,
   EditeProfile,
+  AddLocation,
+  MessageDetails
   
 } from "./../screens/index";
 const Stack = createStackNavigator();
@@ -104,6 +106,16 @@ function Navigation() {
         <Stack.Screen
           name="EditeProfile"
           component={EditeProfile}
+          options={{ headerShown: false }}
+        />
+             <Stack.Screen
+          name="AddLocation"
+          component={AddLocation}
+          options={{ headerShown: false }}
+        />
+               <Stack.Screen
+          name="MessageDetails"
+          component={MessageDetails}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

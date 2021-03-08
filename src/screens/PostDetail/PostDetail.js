@@ -51,7 +51,7 @@ const PostDetail = (props) => {
           <View style={styles._Notification_User_main}>
             <View style={styles._user_profile_main}>
               <Image
-                source={require("./../../images/Mask.png")}
+                source={require("./../../images/profile.png")}
                 style={styles._user_profile}
               />
             </View>
@@ -144,33 +144,32 @@ const PostDetail = (props) => {
             Curabitur scelerisque tellus vel venenatis nun scelerisque. Fusce
             varius, ligula ut lobortis at interdum, mi nisi feugiat lacus.
           </Text>
-          <View style={{margin:20}}>
-
-          <View style={styles._Notification_User_main}>
-            <View style={styles._user_profile_main}>
-              <Image
-                source={require("./../../images/Mask.png")}
-                style={styles._user_profile}
-              />
-            </View>
-            <View style={styles._user_name_main}>
-              <Text style={styles._user_name}>Inverness McKenzie</Text>
-            </View>
-            {/* <View style={styles._Notification_time_main}>
+          <View style={{ margin: 20 }}>
+            <View style={styles._Notification_User_main}>
+              <View style={styles._user_profile_main}>
+                <Image
+                  source={require("./../../images/Mask.png")}
+                  style={styles._user_profile}
+                />
+              </View>
+              <View style={styles._user_name_main}>
+                <Text style={styles._user_name}>Inverness McKenzie</Text>
+              </View>
+              {/* <View style={styles._Notification_time_main}>
               <Text style={styles._Notification_time}>15 min</Text>
             </View> */}
-          </View>
-          <Text
-            style={{
-              color: "#6F8BA4",
-              fontSize: 14,
-              letterSpacing: 0.5,
-              marginTop: 15,
-            }}
-          >
-            Curabitur scelerisque tellus vel venenatis nun scelerisque. Fusce
-            varius, ligula ut lobortis at interdum, mi nisi feugiat lacus.
-          </Text>
+            </View>
+            <Text
+              style={{
+                color: "#6F8BA4",
+                fontSize: 14,
+                letterSpacing: 0.5,
+                marginTop: 15,
+              }}
+            >
+              Curabitur scelerisque tellus vel venenatis nun scelerisque. Fusce
+              varius, ligula ut lobortis at interdum, mi nisi feugiat lacus.
+            </Text>
           </View>
         </View>
       </ScrollView>
@@ -234,6 +233,11 @@ const styles = StyleSheet.create({
     color: "#AEB5C0",
     marginLeft: 10,
   },
+  _user_profile:{
+    width:50,
+    height:50,
+    borderRadius:20
+  }
 });
 
 export default PostDetail;
