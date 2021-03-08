@@ -142,13 +142,39 @@ const Profile = (props) => {
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
+                <Image
+                  source={require("./../../images/homepost.png")}
+                  style={styles._user_post_img}
+                />
+                <View style={styles._like_share_main}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <TouchableOpacity>
+                      <AntDesign name="hearto" size={20} color="black" />
+                    </TouchableOpacity>
+                    <Text style={styles._like_show}>110</Text>
+                    <TouchableOpacity>
+                      <FontAwesome5 name="comment" size={20} color="#6F8BA4" />
+                    </TouchableOpacity>
+                  </View>
+                  <View>
+                    <TouchableOpacity style={styles._share_btn}>
+                      <AntDesign name="sharealt" size={20} color="white" />
+                    </TouchableOpacity>
+                  </View>
+                </View>
               </View>
             );
           })}
           {/* ======================== */}
         </View>
       </ScrollView>
-      <View style={styles._tab_navigation_main}>
+      {/* <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
           <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
             <Feather name="home" size={30} color="#989BA5" />
@@ -167,7 +193,7 @@ const Profile = (props) => {
             <Feather name="user" size={30} color="#33CC66" />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -316,7 +342,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingLeft:10,
-    paddingRight:10
+    paddingRight:10,
+    marginTop:10
   },
   _share_btn: {
     backgroundColor: "#33CC66",

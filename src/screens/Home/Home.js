@@ -78,6 +78,7 @@ const Home = (props) => {
       link: "www.offerstika.com",
     },
   ];
+  console.log(props.navigation)
   return (
     <View style={styles.container}>
       <StatusBar
@@ -87,7 +88,7 @@ const Home = (props) => {
         translucent={true}
       />
       <View style={styles._header}>
-        <TouchableOpacity style={{ marginLeft: 10 }}>
+        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => props.navigation.toggleDrawer()}>
           <Entypo name="menu" size={30} color="white" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Home</Text>
@@ -106,7 +107,7 @@ const Home = (props) => {
               source={require("./../../images/Mask.png")}
               style={styles._user_profile}
             />
-            <TouchableOpacity style={styles._create_post_btn}  onPress={() => props.navigation.navigate("CreatePost")}>
+            <TouchableOpacity style={styles._create_post_btn} onPress={() => props.navigation.navigate("CreatePost")}>
               <Text style={styles._create_post_btn_text}>
                 What do you feel?
               </Text>
@@ -146,9 +147,9 @@ const Home = (props) => {
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => props.navigation.navigate("PostDetail")}>
-                <Text style={styles._Notification_message}>
-                  {v.notificationsMessage}
-                </Text>
+                  <Text style={styles._Notification_message}>
+                    {v.notificationsMessage}
+                  </Text>
                 </TouchableOpacity>
                 <Image
                   source={require("./../../images/homepost.png")}
@@ -182,7 +183,7 @@ const Home = (props) => {
           {/* ======================== */}
         </View>
       </ScrollView>
-      <View style={styles._tab_navigation_main}>
+      {/* <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
           <TouchableOpacity>
             <Feather name="home" size={30} color="#33CC66" />
@@ -208,7 +209,7 @@ const Home = (props) => {
             <Feather name="user" size={30} color="#989BA5" />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -343,8 +344,8 @@ const styles = StyleSheet.create({
   _post_main: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop:10,
-    marginBottom:20
+    marginTop: 10,
+    marginBottom: 20
   },
   _create_post_btn: {
     marginLeft: 20,

@@ -200,7 +200,7 @@ const Message = (props) => {
           <Ionicons name="ios-add-outline" size={24} color="white" />
         </TouchableOpacity>
       </View>
-      <View style={styles._tab_navigation_main}>
+      {/* <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
           <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
             <Feather name="home" size={30} color="#989BA5" />
@@ -219,7 +219,7 @@ const Message = (props) => {
             <Feather name="user" size={30} color="#989BA5" />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };

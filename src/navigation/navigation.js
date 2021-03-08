@@ -20,8 +20,9 @@ import {
   EditeProfile,
   AddLocation,
   MessageDetails
-  
+
 } from "./../screens/index";
+import Drawer from './Drawer'
 const Stack = createStackNavigator();
 
 function Navigation() {
@@ -55,10 +56,11 @@ function Navigation() {
         />
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={Drawer}
           options={{ headerShown: false }}
         />
-          <Stack.Screen
+
+        <Stack.Screen
           name="ForgotPassword"
           component={ForgotPassword}
           options={{ headerShown: false }}
@@ -73,11 +75,11 @@ function Navigation() {
           component={Search}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Notifications"
           component={Notifications}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Profile"
           component={Profile}
@@ -108,12 +110,12 @@ function Navigation() {
           component={EditeProfile}
           options={{ headerShown: false }}
         />
-             <Stack.Screen
+        <Stack.Screen
           name="AddLocation"
           component={AddLocation}
           options={{ headerShown: false }}
         />
-               <Stack.Screen
+        <Stack.Screen
           name="MessageDetails"
           component={MessageDetails}
           options={{ headerShown: false }}

@@ -34,34 +34,35 @@ const Notifications = (props) => {
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 min",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
-        userName: "Linguina Nettlewater",
-        notificationsTime: "45 min",
-        notificationsMessage:"Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
-      },
-      {
-        userName: "Richard Tea",
-        notificationsTime: "32 min",
-        notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-      },
-      {
-        userName: "Dianne Ameter",
-        notificationsTime: "32 min",
-        notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-      },
-      {
-        userName: "Richard Tea",
-        notificationsTime: "32 min",
-        notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-      },
-      {
-        userName: "Dianne Ameter",
-        notificationsTime: "32 min",
-        notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
-      },
+      userName: "Linguina Nettlewater",
+      notificationsTime: "45 min",
+      notificationsMessage: "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
+    },
+    {
+      userName: "Richard Tea",
+      notificationsTime: "32 min",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+    },
+    {
+      userName: "Dianne Ameter",
+      notificationsTime: "32 min",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+    },
+    {
+      userName: "Richard Tea",
+      notificationsTime: "32 min",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+    },
+    {
+      userName: "Dianne Ameter",
+      notificationsTime: "32 min",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+    },
   ];
+  console.log(props.navigation)
   return (
     <View style={styles.container}>
       <StatusBar
@@ -81,11 +82,11 @@ const Notifications = (props) => {
           {/* ======================== */}
           {NotificationsData.map((v, i) => {
             return (
-              <View style={styles._Notification_Card_main}>
+              <View style={styles._Notification_Card_main} >
                 <View style={styles._Notification_User_main}>
                   <View style={styles._user_profile_main}>
                     <Image
-                      source={require("./../../images/Mask.png")}
+                      source={require("./../../images/profile.png")}
                       style={styles._user_profile}
                     />
                   </View>
@@ -103,7 +104,7 @@ const Notifications = (props) => {
           {/* ======================== */}
         </View>
       </ScrollView>
-      <View style={styles._tab_navigation_main}>
+      {/* <View style={styles._tab_navigation_main}>
         <View style={styles._tab_navigation}>
           <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
             <Feather name="home" size={30} color="#989BA5" />
@@ -122,7 +123,7 @@ const Notifications = (props) => {
             <Feather name="user" size={30} color="#989BA5" />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 5,
     padding: 10,
-    marginTop:20
+    marginTop: 20
   },
   _Notification_User_main: {
     flexDirection: "row",

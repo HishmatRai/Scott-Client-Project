@@ -41,7 +41,7 @@ const PostDetail = (props) => {
         translucent={true}
       />
       <View style={styles._header_main}>
-        <TouchableOpacity>
+        <TouchableOpacity >
           <Entypo name="menu" size={24} color="white" />
         </TouchableOpacity>
         <Text style={styles._heading}>Inverness's Post</Text>
