@@ -118,7 +118,8 @@ const Message = (props) => {
       {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
-          {/* ======================== */}
+
+  {/* ==================================> ** ONLINE FRIENDS ** <================================== */}
           <Text
             style={{
               fontSize: 15,
@@ -151,12 +152,16 @@ const Message = (props) => {
               })}
             </View>
           </ScrollView>
+
+          {/* ==================================> ** CHAT ** <================================== */}
           {chatUser.map((v, i) => {
             return (
               <TouchableOpacity
                 style={styles._message_list_main}
                 onPress={() => props.navigation.navigate("MessageDetails")}
               >
+
+                {/* ==================================> ** PROFILE ** <================================== */}
                 <View style={styles._message_list_profile_main}>
                   <View>
                     <TouchableOpacity>
@@ -168,6 +173,8 @@ const Message = (props) => {
                   </View>
                   <Text style={styles._active}></Text>
                 </View>
+
+                {/* ==================================> ** MESSAGE ** <================================== */}
                 <View style={styles._message_list_message_main}>
                   <Text
                     style={{
@@ -191,6 +198,8 @@ const Message = (props) => {
                     {v.userMessage}
                   </Text>
                 </View>
+
+                {/* ==================================> ** TIME AND UNREAD MESSAGE ** <================================== */}
                 <View style={styles._message_list_time_main}>
                   <Text style={{ color: "#C6C6C6", fontSize: 12 }}>
                     {v.time}
@@ -200,34 +209,15 @@ const Message = (props) => {
               </TouchableOpacity>
             );
           })}
-          {/* ======================== */}
         </View>
       </ScrollView>
+
+      {/* ==================================> ** ADD BUTTON ** <================================== */}
       <View style={styles._add_main}>
         <TouchableOpacity style={styles._add_btn}>
           <Ionicons name="ios-add-outline" size={24} color="white" />
         </TouchableOpacity>
       </View>
-      {/* <View style={styles._tab_navigation_main}>
-        <View style={styles._tab_navigation}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
-            <Feather name="home" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Feather name="message-square" size={30} color="#33CC66" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
-            <MaterialIcons
-              name="notifications-none"
-              size={30}
-              color="#989BA5"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
-            <Feather name="user" size={30} color="#989BA5" />
-          </TouchableOpacity>
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -311,9 +301,10 @@ const styles = StyleSheet.create({
     width: 14,
     height: 14,
     backgroundColor: "#80EA4E",
-    borderRadius: 20,
     marginTop: -30,
     marginLeft: 30,
+    borderRadius: 14 / 2,
+    overflow:"hidden"
   },
   _message_list_main: {
     flexDirection: "row",
@@ -321,16 +312,13 @@ const styles = StyleSheet.create({
   },
   _message_list_profile_main: {
     width: "20%",
-    // backgroundColor: "red",
     alignItems: "center",
   },
   _message_list_message_main: {
     width: "60%",
-    // backgroundColor: "green",
   },
   _message_list_time_main: {
     width: "20%",
-    // backgroundColor: "yellow",
     alignItems: "center",
   },
   chat_profile_image: {
@@ -342,62 +330,29 @@ const styles = StyleSheet.create({
     width: 19,
     height: 19,
     backgroundColor: "#80EA4E",
-    borderRadius: 50,
+    borderRadius: 19 / 2,
+    overflow:"hidden",
     marginTop: -15,
     marginLeft: 35,
     borderWidth: 2,
     borderColor: "white",
+    
   },
   _unread_message: {
     backgroundColor: "#33CC66",
     color: "white",
     height: 20,
     width: 20,
-    borderRadius: 5,
+    borderRadius: 20 / 4,
+    overflow:"hidden",
     alignSelf: "center",
     justifyContent: "center",
     marginTop: 15,
     textAlign: "center",
   },
-  //   tab navigation
-  _tab_navigation_main: {
-    bottom: 5,
-    width: "90%",
-    alignSelf: "center",
-    borderRadius: 20,
-    backgroundColor: "white",
-    elevation: 8,
-  },
-  _tab_navigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
-    // backgroundColor: "white",
-  },
-  _active_dot: {
-    color: "#FC6100",
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: -20,
-  },
-  _active_tab: {
-    textAlign: "center",
-    alignItems: "center",
-  },
-  _line: {
-    backgroundColor: "#000000",
-    height: 5,
-    width: "40%",
-    marginBottom: 5,
-    alignItems: "center",
-    alignSelf: "center",
-    borderRadius: 100,
-  },
   _add_main: {
     position: "absolute",
-    bottom: 70,
+    bottom: 15,
     width: "80%",
     alignSelf: "center",
   },
@@ -411,7 +366,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "flex-end",
   },
-  //   tab navigation end
 });
 
 export default Message;

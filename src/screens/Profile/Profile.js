@@ -20,7 +20,6 @@ const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Profile = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -36,42 +35,46 @@ const Profile = (props) => {
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Linguina Nettlewater",
       notificationsTime: "45 minutes ago",
-      notificationsMessage:"Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
+      notificationsMessage: "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
   ];
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <MaterialIcons name="keyboard-backspace" size={24} color="black" />
@@ -81,20 +84,29 @@ const Profile = (props) => {
           <Feather name="settings" size={24} color="black" />
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
-          {/* ======================== */}
+
+          {/* ==================================> ** PROFILE IMAGE ** <================================== */}
           <View style={styles._profile_main}>
             <Image
               source={require("./../../images/profile.png")}
               style={styles._user_profile}
             />
           </View>
+
+          {/* ==================================> ** CHANGE PROFILE ** <================================== */}
           <TouchableOpacity style={styles._add_btn2}>
             <Ionicons name="ios-add" size={14} color="white" />
           </TouchableOpacity>
+
+          {/* ==================================> ** USER NAME ** <================================== */}
           <Text style={styles._user_full_name}>Piff Jenkins</Text>
           <Text style={styles._user_user_name}>@piffjenkins</Text>
+
+          {/* ==================================> ** FOLLOW AND FOLLOWING ** <================================== */}
           <View style={styles._followers_main}>
             <View>
               <Text style={styles._following}>FOLLOWİNG</Text>
@@ -105,10 +117,14 @@ const Profile = (props) => {
               <Text style={styles._following_counter}>2.703</Text>
             </View>
           </View>
+
+          {/* ==================================> ** USER DES ** <================================== */}
           <Text style={styles._user_des}>
             Ut nulla purus, elementum at sollicitudin nec quis, commodo nec
             nunc. Fusce sed dictum eros.
           </Text>
+
+          {/* ==================================> ** EDIT AND ADD IMAGES ** <================================== */}
           <View style={styles._edit_main}>
             <TouchableOpacity onPress={() => props.navigation.navigate("EditeProfile")}>
               <FontAwesome5 name="edit" size={24} color="black" />
@@ -117,9 +133,13 @@ const Profile = (props) => {
               <Feather name="image" size={24} color="#FF8802" />
             </TouchableOpacity>
           </View>
+
+          {/* ==================================> ** PSOT ** <================================== */}
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main}>
+
+                {/* ==================================> **  ** <================================== */}
                 <View style={styles._Notification_User_main}>
                   <View style={styles._user_profile_main}>
                     <Image
@@ -139,13 +159,19 @@ const Profile = (props) => {
                     </TouchableOpacity>
                   </View>
                 </View>
+
+                {/* ==================================> **  ** <================================== */}
                 <Text style={styles._Notification_message}>
                   {v.notificationsMessage}
                 </Text>
+
+                {/* ==================================> **  ** <================================== */}
                 <Image
                   source={require("./../../images/homepost.png")}
                   style={styles._user_post_img}
                 />
+
+                {/* ==================================> **  ** <================================== */}
                 <View style={styles._like_share_main}>
                   <View
                     style={{
@@ -171,29 +197,8 @@ const Profile = (props) => {
               </View>
             );
           })}
-          {/* ======================== */}
         </View>
       </ScrollView>
-      {/* <View style={styles._tab_navigation_main}>
-        <View style={styles._tab_navigation}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
-            <Feather name="home" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Message")}>
-            <Feather name="message-square" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
-            <MaterialIcons
-              name="notifications-none"
-              size={30}
-              color="#989BA5"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
-            <Feather name="user" size={30} color="#33CC66" />
-          </TouchableOpacity>
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -302,15 +307,12 @@ const styles = StyleSheet.create({
   },
   _user_profile_main: {
     width: "20%",
-    //   backgroundColor:"red"
   },
   _user_name_main: {
     width: "65%",
-    // backgroundColor:"green"
   },
   _Notification_time_main: {
     width: "15%",
-    // backgroundColor:"yellow"
   },
   _user_profile2: {
     height: 50,
@@ -341,9 +343,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft:10,
-    paddingRight:10,
-    marginTop:10
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 10
   },
   _share_btn: {
     backgroundColor: "#33CC66",
@@ -357,62 +359,9 @@ const styles = StyleSheet.create({
   _like_show: {
     color: "#AEB5C0",
     fontSize: 15,
-    marginLeft:10,
-    marginRight:10
+    marginLeft: 10,
+    marginRight: 10
   },
-  //   tab navigation
-  _tab_navigation_main: {
-    bottom: 5,
-    width: "90%",
-    alignSelf: "center",
-    borderRadius: 20,
-    backgroundColor: "white",
-    elevation: 8,
-  },
-  _tab_navigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
-    // backgroundColor: "white",
-  },
-  _active_dot: {
-    color: "#FC6100",
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: -20,
-  },
-  _active_tab: {
-    textAlign: "center",
-    alignItems: "center",
-  },
-  _line: {
-    backgroundColor: "#000000",
-    height: 5,
-    width: "40%",
-    marginBottom: 5,
-    alignItems: "center",
-    alignSelf: "center",
-    borderRadius: 100,
-  },
-  _add_main: {
-    position: "absolute",
-    bottom: 70,
-    width: "80%",
-    alignSelf: "center",
-  },
-
-  _add_btn: {
-    height: 40,
-    width: 40,
-    backgroundColor: "#FF8802",
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "flex-end",
-  },
-  //   tab navigation end
 });
 
 export default Profile;

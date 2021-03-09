@@ -8,13 +8,11 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Welcome3 = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -28,12 +26,16 @@ const Welcome3 = (props) => {
 
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATTUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ marginTop: 20 }}>
           <Text style={styles.hairWords}>Welcome</Text>
@@ -62,8 +64,10 @@ const Welcome3 = (props) => {
           </View>
         </View>
       </ScrollView>
+
+      {/* ==================================> ** NEXT ** <================================== */}
       <View style={styles._next_main}>
-        <TouchableOpacity style={styles._next_btn}  onPress={() => props.navigation.navigate("SignUp")}>
+        <TouchableOpacity style={styles._next_btn} onPress={() => props.navigation.navigate("SignUp")}>
           <Text style={styles._next_btn_text}>Get Started</Text>
         </TouchableOpacity>
       </View>
@@ -137,7 +141,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     color: "white",
-    letterSpacing:1
+    letterSpacing: 1
   },
   _slider_main: {
     flexDirection: "row",
@@ -149,8 +153,8 @@ const styles = StyleSheet.create({
     height: 350,
     width: 250,
     borderRadius: 20,
-    marginLeft:5,
-    marginRight:5
+    marginLeft: 5,
+    marginRight: 5
   },
   _slider2_image: {
     height: 300,

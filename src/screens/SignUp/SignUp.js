@@ -10,19 +10,10 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import {
-  AntDesign,
-  Ionicons,
-  MaterialIcons,
-  Zocial,
-  FontAwesome,
-} from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
-
 const Signup = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -36,22 +27,30 @@ const Signup = (props) => {
 
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="dark-content"
         hidden={false}
         backgroundColor="white"
         translucent={true}
       />
-      <View style={styles._main}>
-        <View style={styles._logo_main}>
+
+      {/* ==================================> ** BODY ** <================================== */}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles._main}>
+
+          {/* ==================================> ** LOGO ** <================================== */}
+          <View style={styles._logo_main}>
             <Image
               source={require("./../../images/logo.png")}
               style={styles._logo}
             />
             <Text style={styles._heading}>Create a new account</Text>
           </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ marginTop: 20 }}>
+
+            {/* ==================================> ** USER NAME ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -61,6 +60,8 @@ const Signup = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** EMAIL ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -70,6 +71,8 @@ const Signup = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** PASSWORD ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -80,6 +83,8 @@ const Signup = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** RE-ENTER PASSWORD ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -91,20 +96,27 @@ const Signup = (props) => {
               </View>
             </View>
           </View>
+
+          {/* ==================================> ** SIGN UP ** <================================== */}
           <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("Home")}>
             <Text style={styles._button_txt}>Sign up</Text>
           </TouchableOpacity>
+
           <View style={styles._already_member}>
+
+            {/* ==================================> ** ALREADY MEMBER ** <================================== */}
             <Text style={styles._already_member_text}>
-            Already a member?
+              Already a member?
             </Text>
+
+            {/* ==================================> ** SIGN IN ** <================================== */}
             <TouchableOpacity onPress={() => props.navigation.navigate("LogIn")}>
               <Text style={styles._signin_btn_text}>Sign in</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ marginBottom: 100 }}></View>
-        </ScrollView>
-      </View>
+          <View style={{ marginBottom: 20 }}></View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -148,8 +160,8 @@ const styles = StyleSheet.create({
   },
   _input: {
     color: "#C1C0C8",
-    fontSize:14,
-    letterSpacing:1
+    fontSize: 14,
+    letterSpacing: 1
 
   },
   _forgot_btn_text: {
@@ -203,7 +215,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginTop: 30,
-    marginBottom:30
+    marginBottom: 30
   },
   _agree_text: {
     color: "gray",
@@ -218,22 +230,22 @@ const styles = StyleSheet.create({
   },
   _already_member_text: {
     color: "#6F8BA4",
-    marginRight:4,
-    fontSize:12
+    marginRight: 4,
+    fontSize: 12
   },
-  _signin_btn_text:{
+  _signin_btn_text: {
     letterSpacing: 1,
     color: "#33cc66",
-    fontWeight:"bold",
-    fontSize:12
+    fontWeight: "bold",
+    fontSize: 12
   },
   _logo_main: {
     alignItems: "center",
     marginTop: 40,
   },
   _logo: {
-    width: 198,
-    height: 80,
+    width: 167,
+    height: 201,
   },
   _heading: {
     fontSize: 14,

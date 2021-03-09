@@ -14,7 +14,6 @@ const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Welcome2 = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -28,12 +27,16 @@ const Welcome2 = (props) => {
 
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
           <Text style={styles.hairWords}>Welcome</Text>
@@ -62,11 +65,13 @@ const Welcome2 = (props) => {
           </View>
         </View>
       </ScrollView>
+
+      {/* ==================================> ** NEXT ** <================================== */}
       <View style={styles._next_main}>
-      <TouchableOpacity  onPress={() => props.navigation.navigate("Welcome")}>
-      <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
+        <TouchableOpacity onPress={() => props.navigation.navigate("Welcome")}>
+          <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles._next_btn}  onPress={() => props.navigation.navigate("Welcome3")}>
+        <TouchableOpacity style={styles._next_btn} onPress={() => props.navigation.navigate("Welcome3")}>
           <Text style={styles._next_btn_text}>Next</Text>
         </TouchableOpacity>
       </View>
@@ -123,9 +128,9 @@ const styles = StyleSheet.create({
   _next_main: {
     bottom: 20,
     marginRight: 20,
-    marginLeft:20,
-    flexDirection:"row",
-    justifyContent:"space-between"
+    marginLeft: 20,
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   _next_btn: {
     backgroundColor: "#33CC66",
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop:40
+    marginTop: 40
   },
   _slider1_image: {
     height: 230,

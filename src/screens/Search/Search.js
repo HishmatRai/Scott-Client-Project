@@ -15,7 +15,6 @@ export default function Search(props) {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="white" hidden={false} backgroundColor="#33CC66" translucent={true} />
-
             {/* >>>>>>>>>>>>>>>>> HEADER <<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main_view}>
                 <View style={styles._heading_icons_main}>

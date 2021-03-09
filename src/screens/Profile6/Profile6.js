@@ -10,10 +10,8 @@ import {
   Image,
 } from "react-native";
 import {
-  Entypo,
   Feather,
   AntDesign,
-  MaterialCommunityIcons,
   FontAwesome5,
   Ionicons,
   MaterialIcons,
@@ -27,32 +25,32 @@ const Profile6 = (props) => {
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Linguina Nettlewater",
       notificationsTime: "45 minutes ago",
-      notificationsMessage:"Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
+      notificationsMessage: "Curabitur scelerisque tellus vel venenatis scelerisque. Fusce varius, ligula ut.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Richard Tea",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
     {
       userName: "Dianne Ameter",
       notificationsTime: "32 minutes ago",
-      notificationsMessage:"Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
+      notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
   ];
   const onChange = ({ window, screen }) => {
@@ -68,12 +66,16 @@ const Profile6 = (props) => {
 
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header_main}>
         <TouchableOpacity>
           <Ionicons name="ios-arrow-back" size={24} color="white" />
@@ -81,8 +83,11 @@ const Profile6 = (props) => {
         <Text style={styles._heading}>Piff's Profile</Text>
       </View>
 
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
+
+          {/* ==================================> ** PROFILE ** <================================== */}
           <View style={styles._profile_main}>
             <View style={styles._profile_main_view}>
               <Image
@@ -96,6 +101,8 @@ const Profile6 = (props) => {
               <Text style={styles._email}>www.your@name.com</Text>
             </View>
           </View>
+
+          {/* ==================================> ** FOLLOWER FOLLOWING ** <================================== */}
           <TouchableOpacity style={styles._add_btn}>
             <MaterialIcons name="add" size={18} color="white" />
           </TouchableOpacity>
@@ -109,7 +116,7 @@ const Profile6 = (props) => {
               <Text style={styles._following_count}>2.703</Text>
             </View>
           </View>
-
+          {/* ==================================> ** FOLLWO ** <================================== */}
           <View style={styles._follow_main}>
             <TouchableOpacity style={styles._follow_btn}>
               <Text style={styles._follow_btn_text}>Follow</Text>
@@ -119,63 +126,70 @@ const Profile6 = (props) => {
             </TouchableOpacity>
           </View>
 
+          {/* ==================================> ** POST ** <================================== */}
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main}>
-              <View style={styles._Notification_User_main}>
-                <View style={styles._user_profile_main}>
-                  <Image
-                    source={require("./../../images/Mask.png")}
-                    style={styles._user_profile}
-                  />
-                </View>
-                <View style={styles._user_name_main}>
-                  <Text style={styles._user_name}>{v.userName}</Text>
-                  <Text style={styles._Notification_time}>
+
+                {/* ==================================> **  ** <================================== */}
+                <View style={styles._Notification_User_main}>
+                  <View style={styles._user_profile_main}>
+                    <Image
+                      source={require("./../../images/Mask.png")}
+                      style={styles._user_profile}
+                    />
+                  </View>
+                  <View style={styles._user_name_main}>
+                    <Text style={styles._user_name}>{v.userName}</Text>
+                    <Text style={styles._Notification_time}>
                       {v.notificationsTime}
                     </Text>
-                </View>
-                <View style={styles._Notification_time_main}>
-                <TouchableOpacity>
+                  </View>
+                  <View style={styles._Notification_time_main}>
+                    <TouchableOpacity>
                       <Feather name="more-horizontal" size={24} color="#C8D4DF" />
                     </TouchableOpacity>
+                  </View>
+                </View>
+
+                {/* ==================================> **  ** <================================== */}
+                <Text style={styles._Notification_message}>
+                  {v.notificationsMessage}
+                </Text>
+
+                {/* ==================================> **  ** <================================== */}
+                <Image
+                  source={require("./../../images/homepost.png")}
+                  style={styles._user_post_img}
+                />
+
+                {/* ==================================> **  ** <================================== */}
+                <View style={styles._like_share_main}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+
+                    }}
+                  >
+                    <TouchableOpacity>
+                      <AntDesign name="hearto" size={20} color="black" />
+                    </TouchableOpacity>
+                    <Text style={styles._like_show}>110</Text>
+                    <TouchableOpacity>
+                      <FontAwesome5 name="comment" size={20} color="#6F8BA4" />
+                    </TouchableOpacity>
+                  </View>
+                  <View>
+                    <TouchableOpacity style={styles._share_btn}>
+                      <AntDesign name="sharealt" size={20} color="white" />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-              <Text style={styles._Notification_message}>
-                {v.notificationsMessage}
-              </Text>
-              <Image
-                source={require("./../../images/homepost.png")}
-                style={styles._user_post_img}
-              />
-              <View style={styles._like_share_main}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    
-                  }}
-                >
-                  <TouchableOpacity>
-                    <AntDesign name="hearto" size={20} color="black" />
-                  </TouchableOpacity>
-                  <Text style={styles._like_show}>110</Text>
-                  <TouchableOpacity>
-                    <FontAwesome5 name="comment" size={20} color="#6F8BA4" />
-                  </TouchableOpacity>
-                </View>
-                <View>
-                  <TouchableOpacity style={styles._share_btn}>
-                    <AntDesign name="sharealt" size={20} color="white" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
             );
           })}
-
-
         </View>
       </ScrollView>
     </View>
@@ -266,29 +280,29 @@ const styles = StyleSheet.create({
   _follow_main: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent:"space-between",
-    marginTop:20
+    justifyContent: "space-between",
+    marginTop: 20
   },
   _follow_btn: {
     backgroundColor: "#33CC66",
     borderRadius: 20,
-    width:"70%",
-    alignItems:"center",
-    paddingBottom:5,
-    paddingTop:5
+    width: "70%",
+    alignItems: "center",
+    paddingBottom: 5,
+    paddingTop: 5
   },
   _send_btn: {
     backgroundColor: "#8AFAB0",
     borderRadius: 5,
-    width:"20%",
-    paddingBottom:5,
-    paddingTop:5,
-    alignItems:"center",
+    width: "20%",
+    paddingBottom: 5,
+    paddingTop: 5,
+    alignItems: "center",
   },
-  _follow_btn_text:{
-    color:"white",
-    fontSize:15,
-    fontWeight:"bold"
+  _follow_btn_text: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold"
   },
   _Notification_Card_main: {
     elevation: 4,
@@ -342,9 +356,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft:10,
-    paddingRight:10,
-    marginTop:20
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 20
   },
   _share_btn: {
     backgroundColor: "#33CC66",
@@ -358,8 +372,8 @@ const styles = StyleSheet.create({
   _like_show: {
     color: "#AEB5C0",
     fontSize: 15,
-    marginLeft:10,
-    marginRight:10
+    marginLeft: 10,
+    marginRight: 10
   },
 });
 

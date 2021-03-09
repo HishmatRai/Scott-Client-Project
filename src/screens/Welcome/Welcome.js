@@ -13,7 +13,6 @@ const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Welcome = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -27,12 +26,16 @@ const Welcome = (props) => {
 
   return (
     <View style={styles.container}>
+
+       {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+       {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
           <Image
@@ -51,6 +54,8 @@ const Welcome = (props) => {
           </Text>
         </View>
       </ScrollView>
+
+       {/* ==================================> ** NEXT ** <================================== */}
           <View style={styles._next_main}>
             <TouchableOpacity style={styles._next_btn}  onPress={() => props.navigation.navigate("Welcome2")}>
               <Text style={styles._next_btn_text}>Next</Text>

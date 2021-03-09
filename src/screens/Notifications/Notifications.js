@@ -10,15 +10,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import {
-  Feather,
-  MaterialIcons,
   EvilIcons,
 } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Notifications = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -62,24 +59,29 @@ const Notifications = (props) => {
       notificationsMessage: "Nulla sed ullamcorper ligula. Vivamus sit amet tellus fermentum, sodales dui id.",
     },
   ];
-  console.log(props.navigation)
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <Text style={styles._header_text}>Notifications</Text>
         <TouchableOpacity style={styles._search_icon} onPress={() => props.navigation.navigate("Search")}>
           <EvilIcons name="search" size={24} color="white" />
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
-          {/* ======================== */}
+          {/* ==================================> ** NOTIFICATION ** <================================== */}
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main} >
@@ -101,29 +103,8 @@ const Notifications = (props) => {
               </View>
             );
           })}
-          {/* ======================== */}
         </View>
       </ScrollView>
-      {/* <View style={styles._tab_navigation_main}>
-        <View style={styles._tab_navigation}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
-            <Feather name="home" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Message")}>
-            <Feather name="message-square" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Notifications")}>
-            <MaterialIcons
-              name="notifications-none"
-              size={30}
-              color="#33CC66"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles._active_tab} onPress={() => props.navigation.navigate("Profile")}>
-            <Feather name="user" size={30} color="#989BA5" />
-          </TouchableOpacity>
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -170,15 +151,12 @@ const styles = StyleSheet.create({
   },
   _user_profile_main: {
     width: "20%",
-    //   backgroundColor:"red"
   },
   _user_name_main: {
     width: "65%",
-    // backgroundColor:"green"
   },
   _Notification_time_main: {
     width: "15%",
-    // backgroundColor:"yellow"
   },
   _user_profile: {
     height: 40,
@@ -201,59 +179,9 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     marginTop: 10,
   },
-  //   tab navigation
-  _tab_navigation_main: {
-    bottom: 5,
-    width: "90%",
-    alignSelf: "center",
-    borderRadius: 20,
-    backgroundColor: "white",
-    elevation: 8,
-  },
-  _tab_navigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
-    // backgroundColor: "white",
-  },
-  _active_dot: {
-    color: "#FC6100",
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: -20,
-  },
-  _active_tab: {
-    textAlign: "center",
-    alignItems: "center",
-  },
-  _line: {
-    backgroundColor: "#000000",
-    height: 5,
-    width: "40%",
-    marginBottom: 5,
-    alignItems: "center",
-    alignSelf: "center",
-    borderRadius: 100,
-  },
-  _add_main: {
-    position: "absolute",
-    bottom: 70,
-    width: "80%",
-    alignSelf: "center",
-  },
 
-  _add_btn: {
-    height: 40,
-    width: 40,
-    backgroundColor: "#FF8802",
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "flex-end",
-  },
-  //   tab navigation end
+
+
 });
 
 export default Notifications;

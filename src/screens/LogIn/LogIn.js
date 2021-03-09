@@ -204,8 +204,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   _logo: {
-    width: 198,
-    height: 80,
+    width: 167,
+    height: 201,
   },
   _remember_main: {
     flexDirection: "row",
