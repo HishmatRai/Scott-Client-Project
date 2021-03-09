@@ -10,13 +10,11 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { Entypo, Ionicons, MaterialIcons, Feather } from "@expo/vector-icons";
+import { Ionicons, Feather } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
-
 const LogIn = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -30,20 +28,26 @@ const LogIn = (props) => {
 
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="dark-content"
         hidden={false}
         backgroundColor="white"
         translucent={true}
       />
+
       <View style={styles._main}>
+        {/* ==================================> ** HEADER ** <================================== */}
         <TouchableOpacity
           style={styles._back_icon_btn}
           onPress={() => props.navigation.goBack()}
         >
           <Ionicons name="ios-arrow-back-outline" size={24} color="black" />
         </TouchableOpacity>
+
+        {/* ==================================> ** BODY ** <================================== */}
         <ScrollView showsVerticalScrollIndicator={false}>
+          {/* ==================================> ** LOGO ** <================================== */}
           <View style={styles._logo_main}>
             <Image
               source={require("./../../images/logo.png")}
@@ -51,7 +55,9 @@ const LogIn = (props) => {
             />
             <Text style={styles._heading}>Login to existing account</Text>
           </View>
+
           <View style={{ marginTop: 20 }}>
+            {/* ==================================> ** EMAIL ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -61,6 +67,8 @@ const LogIn = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** PASSWORD ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -72,23 +80,34 @@ const LogIn = (props) => {
               </View>
             </View>
           </View>
+
+          {/* ==================================> ** FORGOT PASSWORD ** <================================== */}
           <View>
-            <TouchableOpacity style={styles._forgot_btn} onPress={() => props.navigation.navigate("ForgotPassword")}>
+            <TouchableOpacity
+              style={styles._forgot_btn}
+              onPress={() => props.navigation.navigate("ForgotPassword")}
+            >
               <Text style={styles._forgot_btn_text}>Forgot password?</Text>
             </TouchableOpacity>
           </View>
+
+          {/* ==================================> ** REMEMBER ** <================================== */}
           <View style={styles._remember_main}>
             <TouchableOpacity style={styles._check}>
               <Feather name="check" size={17} color="#504DE5" />
             </TouchableOpacity>
             <Text style={styles._remember_text}>Remember Me</Text>
           </View>
+
+          {/* ==================================> ** SIGN IN ** <================================== */}
           <TouchableOpacity
             style={styles.button}
             onPress={() => props.navigation.navigate("Home")}
           >
             <Text style={styles._button_txt}>Sign in</Text>
           </TouchableOpacity>
+
+          {/* ==================================> ** OR ** <================================== */}
           <View
             style={{
               flexDirection: "row",
@@ -112,9 +131,15 @@ const LogIn = (props) => {
             </View>
             <View style={{ flex: 1, height: 1, backgroundColor: "#F0F2F6" }} />
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate("SignUp")}>
+
+          {/* ==================================> ** SIGN UP ** <================================== */}
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => props.navigation.navigate("SignUp")}
+          >
             <Text style={styles._button_txt}>Sign up</Text>
           </TouchableOpacity>
+
           <View style={{ marginBottom: 50 }}></View>
         </ScrollView>
       </View>
@@ -177,33 +202,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 12,
     letterSpacing: 1,
-  },
-  _or: {
-    textAlign: "center",
-    color: "#777777",
-    // fontWeight:"bold",
-    fontSize: 25,
-    marginTop: 10,
-  },
-  _fb_button: {
-    backgroundColor: "#2672cb",
-    borderRadius: 50,
-    width: "100%",
-    alignSelf: "center",
-    marginTop: 10,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  _fb_button_txt: {
-    fontWeight: "bold",
-    paddingTop: 15,
-    paddingBottom: 15,
-    textAlign: "center",
-    color: "white",
-    fontSize: 18,
-    letterSpacing: 0.5,
-    paddingRight: 10,
   },
   _logo: {
     width: 198,

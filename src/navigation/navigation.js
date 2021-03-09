@@ -10,10 +10,6 @@ import {
   ForgotPassword,
   Setting,
   Search,
-  Notifications,
-  Profile,
-  Home,
-  Message,
   PostDetail,
   Profile6,
   CreatePost,
@@ -73,21 +69,6 @@ function Navigation() {
         <Stack.Screen
           name="Search"
           component={Search}
-          options={{ headerShown: false }}
-        />
-        {/* <Stack.Screen
-          name="Notifications"
-          component={Notifications}
-          options={{ headerShown: false }}
-        /> */}
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Message"
-          component={Message}
           options={{ headerShown: false }}
         />
         <Stack.Screen

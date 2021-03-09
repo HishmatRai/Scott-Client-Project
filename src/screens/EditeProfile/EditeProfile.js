@@ -10,14 +10,8 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import {
-  Feather,
-  MaterialIcons,
-  Ionicons,
-  FontAwesome5,
-  AntDesign,
-} from "@expo/vector-icons";
-import DatePiker from './../../Components/DatePiker/DatePiker'
+import { MaterialIcons } from "@expo/vector-icons";
+import DatePiker from "./../../Components/DatePiker/DatePiker";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const EditeProfile = (props) => {
@@ -39,12 +33,15 @@ const EditeProfile = (props) => {
 
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <MaterialIcons name="keyboard-backspace" size={24} color="white" />
@@ -54,8 +51,11 @@ const EditeProfile = (props) => {
           <Text style={styles._header_text}>Done</Text>
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ margin: 20 }}>
+          {/* ==================================> ** PROFILE ** <================================== */}
           <View style={styles._user_profile_main}>
             <Image
               source={require("./../../images/Mask.png")}
@@ -65,6 +65,8 @@ const EditeProfile = (props) => {
           <Text style={styles._change_profile_heading}>
             Change Profile Picture
           </Text>
+
+          {/* ==================================> ** EDIT USER NAME ** <================================== */}
           <View style={styles._edit_main}>
             <View style={styles._title_main}>
               <Text style={styles._title}>User Name</Text>
@@ -79,6 +81,7 @@ const EditeProfile = (props) => {
             </View>
           </View>
 
+          {/* ==================================> ** EDIT USER EMAIL ** <================================== */}
           <View style={styles._edit_main}>
             <View style={styles._title_main}>
               <Text style={styles._title}>Your Email</Text>
@@ -93,6 +96,7 @@ const EditeProfile = (props) => {
             </View>
           </View>
 
+          {/* ==================================> ** EDIT USER PHONE ** <================================== */}
           <View style={styles._edit_main}>
             <View style={styles._title_main}>
               <Text style={styles._title}>Phone</Text>
@@ -107,7 +111,8 @@ const EditeProfile = (props) => {
               />
             </View>
           </View>
-          
+
+          {/* ==================================> ** EDIT USER GENDER ** <================================== */}
           <View style={styles._edit_main}>
             <View style={styles._title_main}>
               <Text style={styles._title}>Gender</Text>
@@ -121,7 +126,8 @@ const EditeProfile = (props) => {
               />
             </View>
           </View>
-                
+
+          {/* ==================================> ** EDIT USER DATE OF BIRTH ** <================================== */}
           <View style={styles._edit_main}>
             <View style={styles._title_main}>
               <Text style={styles._title}>Date Of Birth</Text>
@@ -131,15 +137,16 @@ const EditeProfile = (props) => {
             </View>
           </View>
 
-          <View style={{marginTop:20}}>
-          <Text style={styles._title}>About</Text>
-          <TextInput
-            style={styles.textArea}
-            underlineColorAndroid="transparent"
-            placeholderTextColor="#6F8BA4"
-            numberOfLines={5}
-            multiline={true}
-          />
+          {/* ==================================> ** EDIT USER DES ** <================================== */}
+          <View style={{ marginTop: 20 }}>
+            <Text style={styles._title}>About</Text>
+            <TextInput
+              style={styles.textArea}
+              underlineColorAndroid="transparent"
+              placeholderTextColor="#6F8BA4"
+              numberOfLines={5}
+              multiline={true}
+            />
           </View>
         </View>
       </ScrollView>
@@ -223,12 +230,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#3B566E",
   },
-  textArea:{
-      borderColor:"#707070",
-      borderWidth:1,
-      marginTop:10,
-      borderRadius:5
-  }
+  textArea: {
+    borderColor: "#707070",
+    borderWidth: 1,
+    marginTop: 10,
+    borderRadius: 5,
+  },
 });
 
 export default EditeProfile;

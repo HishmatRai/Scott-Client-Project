@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 import Navigation from "./src/navigation/navigation";

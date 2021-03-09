@@ -10,19 +10,11 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import {
-  Feather,
-  MaterialIcons,
-  Ionicons,
-  FontAwesome5,
-  AntDesign,
-  EvilIcons,
-} from "@expo/vector-icons";
+import { Feather, Ionicons, EvilIcons } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Message = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -89,15 +81,22 @@ const Message = (props) => {
   ];
   return (
     <View style={styles.container}>
+
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <Text style={styles._heading}>Chats</Text>
+
         <View style={{ flexDirection: "row", alignItems: "center" }}>
+
+          {/* ==================================> ** SEARCH ** <================================== */}
           <View style={styles._search_main}>
             <EvilIcons name="search" size={24} color="#C6C6C6" />
             <TextInput
@@ -106,6 +105,8 @@ const Message = (props) => {
               placeholderTextColor="#C6C6C6"
             />
           </View>
+
+          {/* ==================================> ** CAMERA ** <================================== */}
           <View style={styles._camera_main}>
             <TouchableOpacity style={styles._camera_btn}>
               <Feather name="camera" size={20} color="#33CC66" />
@@ -113,6 +114,8 @@ const Message = (props) => {
           </View>
         </View>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
           {/* ======================== */}
@@ -126,6 +129,8 @@ const Message = (props) => {
           >
             Online Friends
           </Text>
+
+          {/* ==================================> ** ONLINE USER ** <================================== */}
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles._all_user_show_main}>
               {activeUser.map((v, i) => {
@@ -148,7 +153,10 @@ const Message = (props) => {
           </ScrollView>
           {chatUser.map((v, i) => {
             return (
-              <TouchableOpacity style={styles._message_list_main} onPress={() => props.navigation.navigate("MessageDetails")}>
+              <TouchableOpacity
+                style={styles._message_list_main}
+                onPress={() => props.navigation.navigate("MessageDetails")}
+              >
                 <View style={styles._message_list_profile_main}>
                   <View>
                     <TouchableOpacity>
@@ -303,7 +311,7 @@ const styles = StyleSheet.create({
     width: 14,
     height: 14,
     backgroundColor: "#80EA4E",
-    borderRadius: 50,
+    borderRadius: 20,
     marginTop: -30,
     marginLeft: 30,
   },

@@ -7,14 +7,13 @@ import {
   StatusBar,
   TouchableOpacity,
   ScrollView,
-  TextInput
+  TextInput,
 } from "react-native";
 import {
   Feather,
   MaterialIcons,
   Ionicons,
   FontAwesome,
-  Entypo,
 } from "@expo/vector-icons";
 import GoogleMap from "./../../Components/Map/Map";
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -22,7 +21,6 @@ const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const AddLocation = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -36,12 +34,15 @@ const AddLocation = (props) => {
 
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <MaterialIcons name="keyboard-backspace" size={24} color="white" />
@@ -51,6 +52,8 @@ const AddLocation = (props) => {
           <Text style={styles._header_text2}>Publish</Text>
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** GOOGLE MAP SHOW **  <================================== */}
       <ScrollView>
         <View style={styles._map_main}>
           <GoogleMap />
@@ -68,6 +71,7 @@ const AddLocation = (props) => {
         </View>
       </ScrollView>
 
+      {/* ==================================> ** BOTTOM SHEET START ** <================================== */}
       {/* bottom sheet */}
       <RBSheet
         ref={(ref) => {
@@ -77,52 +81,73 @@ const AddLocation = (props) => {
         openDuration={250}
         customStyles={{
           container: {
-            // justifyContent: "center",
-            // alignItems: "center",
             borderTopEndRadius: 20,
             borderTopLeftRadius: 20,
           },
         }}
       >
-            <Text style={styles._line}></Text>
+        <Text style={styles._line}></Text>
+
+        {/* ==================================> ** BOTTOM SHEET ** <================================== */}
         <ScrollView>
           {/* bottom sheeet */}
           <View style={styles._bottomsheet_man}>
+            {/* ==================================> ** CURRENT LOCATION ** <================================== */}
             <TouchableOpacity style={styles._location_btn_main}>
               <View style={styles._location_icon}>
-              <Ionicons name="location-outline" size={24} color="white" />
+                <Ionicons name="location-outline" size={24} color="white" />
               </View>
-             <Text style={styles._location_heading}> Use my current location</Text>
+              <Text style={styles._location_heading}>
+                {" "}
+                Use my current location
+              </Text>
             </TouchableOpacity>
+
+            {/* ==================================> ** LOCATION 02 ** <================================== */}
             <TouchableOpacity style={styles._location_btn_main}>
               <View style={styles._location_icon2}>
-              <Ionicons name="location-outline" size={24} color="white" />
+                <Ionicons name="location-outline" size={24} color="white" />
               </View>
-             <Text style={styles._location_heading}> Leesburg, Virginia(VA), 20176</Text>
+              <Text style={styles._location_heading}>
+                {" "}
+                Leesburg, Virginia(VA), 20176
+              </Text>
             </TouchableOpacity>
+
+            {/* ==================================> ** LOCATION 03 ** <================================== */}
             <TouchableOpacity style={styles._location_btn_main}>
               <View style={styles._location_icon2}>
-              <Ionicons name="location-outline" size={24} color="white" />
+                <Ionicons name="location-outline" size={24} color="white" />
               </View>
-             <Text style={styles._location_heading}> Leesburg, Virginia(VA), 20176</Text>
+              <Text style={styles._location_heading}>
+                {" "}
+                Leesburg, Virginia(VA), 20176
+              </Text>
             </TouchableOpacity>
+
+            {/* ==================================> ** LOCATIN 04 ** <================================== */}
             <TouchableOpacity style={styles._location_btn_main}>
               <View style={styles._location_icon2}>
-              <Ionicons name="location-outline" size={24} color="white" />
+                <Ionicons name="location-outline" size={24} color="white" />
               </View>
-             <Text style={styles._location_heading}> Leesburg, Virginia(VA), 20176</Text>
+              <Text style={styles._location_heading}>
+                {" "}
+                Leesburg, Virginia(VA), 20176
+              </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
+
+        {/* ==================================> ** SEARCH LOCATION ** <================================== */}
         <View style={styles._input_main}>
-              <View style={styles._email_input_view}>
-                <TextInput
-                  style={styles._input}
-                  placeholder="Search in location"
-                  placeholderTextColor="#6F8BA4"
-                />
-              </View>
-            </View>
+          <View style={styles._email_input_view}>
+            <TextInput
+              style={styles._input}
+              placeholder="Search in location"
+              placeholderTextColor="#6F8BA4"
+            />
+          </View>
+        </View>
       </RBSheet>
     </View>
   );
@@ -178,7 +203,7 @@ const styles = StyleSheet.create({
     height: 5,
     borderRadius: 20,
     alignSelf: "center",
-    marginTop:10
+    marginTop: 10,
   },
   _input_main: {
     borderRadius: 10,
@@ -186,9 +211,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: "#DCDBFF",
-    width:"90%",
-    alignSelf:"center",
-    marginBottom:10
+    width: "90%",
+    alignSelf: "center",
+    marginBottom: 10,
   },
   _email_input_view: {
     // backgroundColor: "green",
@@ -196,39 +221,39 @@ const styles = StyleSheet.create({
   },
   _input: {
     color: "#6F8BA4",
-    fontSize:12
+    fontSize: 12,
   },
-  _bottomsheet_man:{
-margin:20
+  _bottomsheet_man: {
+    margin: 20,
   },
-  _location_btn_main:{
-    flexDirection:"row",
-    alignItems:"center",
-    marginTop:20
+  _location_btn_main: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 20,
   },
-  _location_icon:{
-    backgroundColor:"#504DE5",
-    width:32,
-    height:32,
-    borderRadius:20,
-    marginRight:20,
-    justifyContent:"center",
-    alignItems:"center"
+  _location_icon: {
+    backgroundColor: "#504DE5",
+    width: 32,
+    height: 32,
+    borderRadius: 20,
+    marginRight: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  _location_icon2:{
-    backgroundColor:"#AEB5C0",
-    width:32,
-    height:32,
-    borderRadius:20,
-    marginRight:20,
-    justifyContent:"center",
-    alignItems:"center"
+  _location_icon2: {
+    backgroundColor: "#AEB5C0",
+    width: 32,
+    height: 32,
+    borderRadius: 20,
+    marginRight: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  _location_heading:{
-    fontSize:14,
-    color:"#3B566E",
-    letterSpacing:0.5
-  }
+  _location_heading: {
+    fontSize: 14,
+    color: "#3B566E",
+    letterSpacing: 0.5,
+  },
 });
 
 export default AddLocation;

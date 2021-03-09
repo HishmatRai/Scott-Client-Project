@@ -10,20 +10,11 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import {
-  Feather,
-  MaterialIcons,
-  Ionicons,
-  FontAwesome5,
-  AntDesign,
-  Entypo,
-  EvilIcons,
-} from "@expo/vector-icons";
+import { Ionicons, Entypo, EvilIcons } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const CreatePast = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -37,21 +28,29 @@ const CreatePast = (props) => {
 
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
         <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Entypo name="cross" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Create Post</Text>
-        <TouchableOpacity style={styles._location} onPress={() => props.navigation.navigate("AddLocation")}>
+        <TouchableOpacity
+          style={styles._location}
+          onPress={() => props.navigation.navigate("AddLocation")}
+        >
           <EvilIcons name="location" size={24} color="white" />
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ margin: 20 }}>
           <Text style={styles._title}>Title</Text>
@@ -64,6 +63,7 @@ const CreatePast = (props) => {
             multiline={true}
           />
           <View>
+            {/* ==================================> ** ADD IMAGES ** <================================== */}
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -82,7 +82,12 @@ const CreatePast = (props) => {
                 </TouchableOpacity>
               </View>
             </ScrollView>
-            <TouchableOpacity style={styles._Publish_btn} onPress={() => props.navigation.navigate("Home")}>
+
+            {/* ==================================> ** PUBLISH BUTTON ** <================================== */}
+            <TouchableOpacity
+              style={styles._Publish_btn}
+              onPress={() => props.navigation.navigate("Home")}
+            >
               <Text style={styles._Publish_btn_text}>Publish</Text>
             </TouchableOpacity>
           </View>
@@ -155,7 +160,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     textAlign: "center",
-    letterSpacing:1
+    letterSpacing: 1,
   },
 });
 

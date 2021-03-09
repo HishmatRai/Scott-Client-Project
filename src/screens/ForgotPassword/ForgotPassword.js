@@ -8,15 +8,12 @@ import {
   StatusBar,
   ScrollView,
   TouchableOpacity,
-  Image,
 } from "react-native";
-import { Entypo, Ionicons, MaterialIcons, Feather } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
-
 const ForgotPassword = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -30,6 +27,7 @@ const ForgotPassword = (props) => {
 
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
@@ -37,7 +35,10 @@ const ForgotPassword = (props) => {
         translucent={true}
       />
       <View style={styles._main}>
-        <View style={{ flexDirection: "row", alignItems: "center", paddingTop:20 }}>
+        {/* ==================================> ** HEADER ** <================================== */}
+        <View
+          style={{ flexDirection: "row", alignItems: "center", paddingTop: 20 }}
+        >
           <TouchableOpacity
             style={styles._back_icon_btn}
             onPress={() => props.navigation.goBack()}
@@ -46,9 +47,12 @@ const ForgotPassword = (props) => {
           </TouchableOpacity>
           <Text style={styles._heading}>Forgot Password</Text>
         </View>
+
+        {/* ==================================> ** BODY ** <================================== */}
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{ marginTop: 70 }}>
-          <View style={styles._input_main}>
+            {/* ==================================> ** EMAIL ** <================================== */}
+            <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
                   style={styles._input}
@@ -57,6 +61,8 @@ const ForgotPassword = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** NEW PASSWORD ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -67,6 +73,8 @@ const ForgotPassword = (props) => {
                 />
               </View>
             </View>
+
+            {/* ==================================> ** CONFIRM PASSWORD ** <================================== */}
             <View style={styles._input_main}>
               <View style={styles._email_input_view}>
                 <TextInput
@@ -78,13 +86,15 @@ const ForgotPassword = (props) => {
               </View>
             </View>
           </View>
-  
+
+          {/* ==================================> ** SEND BUTTON ** <================================== */}
           <TouchableOpacity
             style={styles.button}
             onPress={() => props.navigation.navigate("SignUp")}
           >
             <Text style={styles._button_txt}>Send</Text>
           </TouchableOpacity>
+
           <View style={{ marginBottom: 50 }}></View>
         </ScrollView>
       </View>
@@ -116,15 +126,7 @@ const styles = StyleSheet.create({
   _input: {
     color: "#6F8BA4",
   },
-  _forgot_btn: {
-    alignItems: "flex-end",
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  _forgot_btn_text: {
-    letterSpacing: 1,
-    color: "#33CC66",
-  },
+
   button: {
     backgroundColor: "#33cc66",
     borderRadius: 50,
@@ -140,55 +142,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 12,
     letterSpacing: 1,
-  },
-  _or: {
-    textAlign: "center",
-    color: "#777777",
-    // fontWeight:"bold",
-    fontSize: 25,
-    marginTop: 10,
-  },
-  _fb_button: {
-    backgroundColor: "#2672cb",
-    borderRadius: 50,
-    width: "100%",
-    alignSelf: "center",
-    marginTop: 10,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  _fb_button_txt: {
-    fontWeight: "bold",
-    paddingTop: 15,
-    paddingBottom: 15,
-    textAlign: "center",
-    color: "white",
-    fontSize: 18,
-    letterSpacing: 0.5,
-    paddingRight: 10,
-  },
-  _remember_main: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  _check: {
-    backgroundColor: "white",
-    elevation: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    borderColor: "#DCDBFF",
-    borderWidth: 1,
-  },
-  _remember_text: {
-    fontSize: 14,
-    color: "#6F8BA4",
-    marginLeft: 10,
   },
   _heading: {
     marginLeft: "30%",

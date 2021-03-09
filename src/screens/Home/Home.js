@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import {
   Feather,
-  MaterialIcons,
   EvilIcons,
   Entypo,
   AntDesign,
@@ -22,7 +21,6 @@ const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const Home = (props) => {
   const [dimensions, setDimensions] = useState({ window, screen });
-
   const onChange = ({ window, screen }) => {
     setDimensions({ window, screen });
   };
@@ -78,17 +76,22 @@ const Home = (props) => {
       link: "www.offerstika.com",
     },
   ];
-  console.log(props.navigation)
   return (
     <View style={styles.container}>
+      {/* ==================================> ** STATUS BAR ** <================================== */}
       <StatusBar
         barStyle="white"
         hidden={false}
         backgroundColor="#33CC66"
         translucent={true}
       />
+
+      {/* ==================================> ** HEADER ** <================================== */}
       <View style={styles._header}>
-        <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => props.navigation.toggleDrawer()}>
+        <TouchableOpacity
+          style={{ marginLeft: 10 }}
+          onPress={() => props.navigation.toggleDrawer()}
+        >
           <Entypo name="menu" size={30} color="white" />
         </TouchableOpacity>
         <Text style={styles._header_text}>Home</Text>
@@ -99,20 +102,27 @@ const Home = (props) => {
           <EvilIcons name="search" size={24} color="white" />
         </TouchableOpacity>
       </View>
+
+      {/* ==================================> ** BODY ** <================================== */}
       <ScrollView>
         <View style={{ margin: 20 }}>
-          {/* ======================== */}
+          {/* ==================================> ** CREATE POST ** <================================== */}
           <View style={styles._post_main}>
             <Image
               source={require("./../../images/Mask.png")}
               style={styles._user_profile}
             />
-            <TouchableOpacity style={styles._create_post_btn} onPress={() => props.navigation.navigate("CreatePost")}>
+            <TouchableOpacity
+              style={styles._create_post_btn}
+              onPress={() => props.navigation.navigate("CreatePost")}
+            >
               <Text style={styles._create_post_btn_text}>
                 What do you feel?
               </Text>
             </TouchableOpacity>
           </View>
+
+          {/* ==================================> ** VIDEO IMAGES LOCATION ** <================================== */}
           <View style={styles._video_main}>
             <TouchableOpacity style={styles._video_btn}>
               <Feather name="video" size={24} color="#C8D4DF" />
@@ -122,15 +132,24 @@ const Home = (props) => {
               <Feather name="camera" size={24} color="#C8D4DF" />
               <Text style={styles._video_btn_text}>Photo</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles._video_btn2} onPress={() => props.navigation.navigate("AddLocation")}>
+            <TouchableOpacity
+              style={styles._video_btn2}
+              onPress={() => props.navigation.navigate("AddLocation")}
+            >
               <Ionicons name="location-outline" size={24} color="#C8D4DF" />
               <Text style={styles._video_btn_text}>Location</Text>
             </TouchableOpacity>
           </View>
+
+          {/* ==================================> ** POST CARD ** <================================== */}
           {NotificationsData.map((v, i) => {
             return (
               <View style={styles._Notification_Card_main}>
-                <TouchableOpacity style={styles._Notification_User_main} onPress={() => props.navigation.navigate("PostDetail")}>
+                {/* ==================================> ** USER DATA ** <================================== */}
+                <TouchableOpacity
+                  style={styles._Notification_User_main}
+                  onPress={() => props.navigation.navigate("PostDetail")}
+                >
                   <View style={styles._user_profile_main}>
                     <Image
                       source={require("./../../images/Mask.png")}
@@ -146,15 +165,23 @@ const Home = (props) => {
                     </Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => props.navigation.navigate("PostDetail")}>
+
+                {/* ==================================> ** POST DES ** <================================== */}
+                <TouchableOpacity
+                  onPress={() => props.navigation.navigate("PostDetail")}
+                >
                   <Text style={styles._Notification_message}>
                     {v.notificationsMessage}
                   </Text>
                 </TouchableOpacity>
+
+                {/* ==================================> ** POST IMAGE ** <================================== */}
                 <Image
                   source={require("./../../images/homepost.png")}
                   style={styles._user_post_img}
                 />
+
+                {/* ==================================> ** LIKE SHARE AND COMMENT ** <================================== */}
                 <View style={styles._like_share_main}>
                   <View
                     style={{
@@ -180,36 +207,8 @@ const Home = (props) => {
               </View>
             );
           })}
-          {/* ======================== */}
         </View>
       </ScrollView>
-      {/* <View style={styles._tab_navigation_main}>
-        <View style={styles._tab_navigation}>
-          <TouchableOpacity>
-            <Feather name="home" size={30} color="#33CC66" />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate("Message")}
-          >
-            <Feather name="message-square" size={30} color="#989BA5" />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => props.navigation.navigate("Notifications")}
-          >
-            <MaterialIcons
-              name="notifications-none"
-              size={30}
-              color="#989BA5"
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles._active_tab}
-            onPress={() => props.navigation.navigate("Profile")}
-          >
-            <Feather name="user" size={30} color="#989BA5" />
-          </TouchableOpacity>
-        </View>
-      </View> */}
     </View>
   );
 };
@@ -345,7 +344,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginTop: 10,
-    marginBottom: 20
+    marginBottom: 20,
   },
   _create_post_btn: {
     marginLeft: 20,
@@ -355,60 +354,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     letterSpacing: 1,
   },
-  //   tab navigation
-  //   tab navigation
-  _tab_navigation_main: {
-    bottom: 5,
-    width: "90%",
-    alignSelf: "center",
-    borderRadius: 20,
-    backgroundColor: "white",
-    elevation: 8,
-  },
-  _tab_navigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
-    // backgroundColor: "white",
-  },
-  _active_dot: {
-    color: "#FC6100",
-    fontSize: 30,
-    textAlign: "center",
-    marginTop: -20,
-  },
-  _active_tab: {
-    textAlign: "center",
-    alignItems: "center",
-  },
-  _line: {
-    backgroundColor: "#000000",
-    height: 5,
-    width: "40%",
-    marginBottom: 5,
-    alignItems: "center",
-    alignSelf: "center",
-    borderRadius: 100,
-  },
-  _add_main: {
-    position: "absolute",
-    bottom: 70,
-    width: "80%",
-    alignSelf: "center",
-  },
-
-  _add_btn: {
-    height: 40,
-    width: 40,
-    backgroundColor: "#FF8802",
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "flex-end",
-  },
-  //   tab navigation end
 });
 
 export default Home;
